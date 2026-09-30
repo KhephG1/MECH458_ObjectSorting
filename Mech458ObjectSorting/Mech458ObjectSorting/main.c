@@ -15,38 +15,48 @@ void msysInit(void){
 	CLKPR = _BV(CLKPCE);
 	CLKPR = _BV(CLKPS0);
 }
-enum direction {LEFT, RIGHT};
 int main(void) {
-    /* Replace with your application code */
 	msysInit();
 	mtimerInit();
 	mgpioInit();
-	sei(); // enable interrupts (on the processor side)
-	mstartTimerAutoReload(KNIGHTRIDER_PERIOD);
-	uint16_t pattern = 0x03;
-	enum direction dir = LEFT;
-    while (1) { 
-		if(tim3_exp){
-			tim3_exp = 0;
-			//shift the two bit knightrider pattern
-			if(dir == LEFT){
-				if(pattern > 0xC0){
-					dir = RIGHT;
-					pattern >>= 1;
-				}else{
-					pattern <<= 1;
-				}
-			} else { // dir = RIGHT
-				if(pattern == 0x01){
-					dir = LEFT;
-					pattern = 3;
-				}else{
-					pattern >>= 1;
-				}
-			}
-			PORTC = pattern;
-			
-		}
-    }
+	mTimer(KNIGHTRIDER_PERIOD);
+	while(1){
+		PORTC = 0b11000000;
+		mTimer(KNIGHTRIDER_PERIOD);
+	 	PORTC = 0b11100000;
+		mTimer(KNIGHTRIDER_PERIOD);
+		PORTC = 0b11110000;
+		mTimer(KNIGHTRIDER_PERIOD);
+		PORTC = 0b01111000;
+		mTimer(KNIGHTRIDER_PERIOD);
+		PORTC = 0b00111100;
+		mTimer(KNIGHTRIDER_PERIOD);
+		PORTC = 0b00011110;
+		mTimer(KNIGHTRIDER_PERIOD);
+		PORTC = 0b00001111;
+		mTimer(KNIGHTRIDER_PERIOD);
+		PORTC = 0b00000111;
+		mTimer(KNIGHTRIDER_PERIOD);
+		PORTC = 0b00000011;
+		mTimer(KNIGHTRIDER_PERIOD);
+		PORTC = 0b00000111;
+		mTimer(KNIGHTRIDER_PERIOD);
+		PORTC = 0b00001111;
+		mTimer(KNIGHTRIDER_PERIOD);
+		PORTC = 0b00011110;
+		mTimer(KNIGHTRIDER_PERIOD);
+		PORTC = 0b00111100;
+		mTimer(KNIGHTRIDER_PERIOD);
+		PORTC = 0b01111000;
+		mTimer(KNIGHTRIDER_PERIOD);
+		PORTC = 0b11110000;
+		mTimer(KNIGHTRIDER_PERIOD);
+		PORTC = 0b11100000;
+		mTimer(KNIGHTRIDER_PERIOD);
+
+	}	
+
+	return (0); 
+	
 }
 
