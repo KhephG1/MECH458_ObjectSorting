@@ -79,7 +79,6 @@ void mTimer(uint16_t count){
 	 uint16_t i = 0;
 	//automatically clears count after OCR1A is reached 
 	TCCR1B |= _BV(WGM12);
-	//
 	OCR1A = 0x03EB;
 	TCNT1 = 0x0000;
 	TIMSK1 |= 0x02;

@@ -10,15 +10,17 @@
 #include "mtimer.h"
 #include "mgpio.h"
 
-#define KNIGHTRIDER_PERIOD (200)
+#define KNIGHTRIDER_PERIOD (50)
 void msysInit(void){
 	CLKPR = _BV(CLKPCE);
 	CLKPR = _BV(CLKPS0);
 }
 int main(void) {
 	msysInit();
-	mtimerInit();
-	mgpioInit();
+	TCCR1B |= _BV(CS11);
+	DDRL = 0xFF; // Sets all pins on PORTL to output
+	PORTL = 0xF0; // initialize pins to high to turn on LEDs (2 Yel & 2 Grn)
+	DDRC = 0xFF; // initialize port C pins to output
 	mTimer(KNIGHTRIDER_PERIOD);
 	while(1){
 		PORTC = 0b11000000;

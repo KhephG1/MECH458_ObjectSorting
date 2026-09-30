@@ -11,7 +11,7 @@
 //these flags are set when the oneshot / autoreload timer interrupts fire
 extern volatile uint8_t tim3_exp;
 extern volatile uint8_t tim4_exp;
-void mtimerMillis(int millis);
+void mTimer(uint16_t count);
 
 void mstartTimerAutoReload(uint16_t period_millis);
 
