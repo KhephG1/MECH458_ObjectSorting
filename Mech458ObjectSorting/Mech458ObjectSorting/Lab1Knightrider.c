@@ -37,8 +37,7 @@
 // 	while(1){
 // 		PORTL = 0b00000000;
 // 		PORTC = 0b11000000;
-// 		delaynms(DELAY);
-// 		PORTC = 0b11100000;
+// 	 		PORTC = 0b11100000;
 // 		delaynms(DELAY);
 // 		PORTC = 0b11110000;
 // 		delaynms(DELAY);
@@ -69,7 +68,8 @@
 // 		PORTC = 0b11100000;
 // 		delaynms(DELAY);
 // 
-// 	}
+// 	}	delaynms(DELAY);
+//
 // 	return (0); // This line returns a 0 value to the calling program
 // 	// generally means no error was returned
 // }
