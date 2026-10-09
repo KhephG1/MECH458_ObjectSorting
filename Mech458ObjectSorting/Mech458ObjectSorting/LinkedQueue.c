@@ -23,7 +23,7 @@
                          /* Make sure you read it!!! */
 /* global variables */
 /* Avoid using these */
-
+#define WAIT_MS (2000)
 // A blocking timer implementation that uses the TIM1 peripheral
 void mTimer(uint16_t count)
 {
@@ -64,75 +64,19 @@ int main()
 
     link *head;    /* The ptr to the head of the queue */
     link *tail;    /* The ptr to the tail of the queue */
-    link *newLink; /* A ptr to a link aggregate data type (struct) */
-    link *rtnLink; /* same as the above */
     element eTest; /* A variable to hold the aggregate data type known as element */
 
     DDRC = 0xFF; /* Used for debugging purposes only LEDs on PORTC */
     DDRA = 0x00; /* Set direction of Pin A to be used as an input*/
-    // DDRD = 0xFF;
-
-    rtnLink = NULL;
-    newLink = NULL;
 
     setup(&head, &tail);
-
-    /*
-        Many of the following lines will test to see if your algorithms will work. You do not necessarily
-        need the MCU attached to the computer to test this, and can do most of the work using the
-        debugger in the AVR studio while observing the I/O View in the top right corner. Click the tab
-        or PORTC to see how the output changes while 'stepping' through the routines.
-    */
-    /* Initialize a new link here */
-    initLink(&newLink);
-    newLink->e.itemCode = 3;
-    newLink->e.stage = 4;
-    enqueue(&head, &tail, &newLink);
-    PORTC = head->e.itemCode; //  You need to insert mTimer in between each output in order to see the values.
-    PORTC = tail->e.stage;    //  Or the LEDs will just flash by very quickly.  You will need about 2 seconds delay.
-
-    initLink(&newLink);
-    newLink->e.itemCode = 5;
-    newLink->e.stage = 6;
-    enqueue(&head, &tail, &newLink);
-    PORTC = head->e.itemCode;
-    PORTC = tail->e.stage;
-
-    initLink(&newLink);
-    newLink->e.itemCode = 7;
-    newLink->e.stage = 8;
-    enqueue(&head, &tail, &newLink);
-    PORTC = head->e.itemCode;
-    PORTC = tail->e.stage;
-
-    PORTC = 0x00;
-
-    /* Tests to see if firstValue works */
-    eTest = firstValue(&head);
-    PORTC = eTest.itemCode;
-    PORTC = 0x00;
-
-    /* Tests if Size works */
-    PORTC = size(&head, &tail);
-
-    /* Tests if dequeue works - Uncomment to use
-    Also, insert mTimer between each output in order to see the values.   */
-
-    // dequeue(&head, &rtnLink); /* remove the item at the head of the list */
-    // PORTC = rtnLink->e.itemCode;
-    // dequeue(&head, &rtnLink); /* remove the item at the head of the list */
-    // PORTC = rtnLink->e.itemCode;
-    // dequeue(&head, &rtnLink); /* remove the item at the head of the list */
-    // PORTC = rtnLink->e.itemCode;
-
-    /* Tests is empty */
-    PORTC = isEmpty(&head);
-
-    /* Tests to see if clearQueue works*/
-    clearQueue(&head, &tail);
-    PORTC = size(&head, &tail);
-
-    PORTC = isEmpty(&head);
+    while (1)
+    {
+        while (*PINA & 0x4 == 0)
+            ;
+        uint8_t input = *PINA & 0x3;
+        button_handler(input, &head, &tail);
+    }
 
     return (0);
 } /* main */
@@ -142,31 +86,47 @@ int main()
 /**************************************************************************************/
 
 // handler function for when the button is pressed
-void button_handler(char input, link *head, link *tail)
+void button_handler(char input, link **head, link **tail)
 {
     mTimer(20);
     link *newLink;
     link *oldLink;
-    int size = size(&head, &tail) if (size < 3)
+    int size = size(head, tail);
+    if (size < 3)
     {
+        // clear previous output
+        *PCOUT = 0;
         // first 3 inputs: Create new link and store the value in the element
         initLink(&newLink);
         newLink->e.itemCode = (PINA &= 0x3); // masks input to only first two bits
-        enqueue(&head, &tail, &newLink);
+        enqueue(head, tail, newLink);
     }
     else
     {
         // this is the 4th input: Remove from front of queue and add new item to end of queue
-        dequeue(&head, &oldLink);
+        dequeue(head, &oldLink);
         initLink(&newLink);
         newLink->e.itemCode = (PINA &= 0x3); // masks input to only first two bits
-        enqueue(&head, &tail, &newLink);
-        display(&head);
+        enqueue(head, tail, &newLink);
+        display(head);
     }
 } // button_hander
 
-void display(link *head)
+void display(link **head, link **tail)
 {
+    link *temp = *head;
+    PCOUT |= temp->e.itemCode & 0x3;
+    temp = temp->next;
+    mTimer(WAIT_MS);
+    PCOUT |= ((temp->e.itemCode & 0x3) << 2);
+    temp = temp->next;
+    mTimer(WAIT_MS);
+    PCOUT |= ((temp->e.itemCode & 0x3) << 2);
+    temp = temp->next;
+    mTimer(WAIT_MS);
+    // clear elements for next iteration
+    clearQueue(head, tail);
+
 } // display
 
 /**************************************************************************************
