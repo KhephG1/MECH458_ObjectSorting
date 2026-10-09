@@ -75,12 +75,12 @@ void mstartTimerAutoReload(uint16_t period_millis){
 }
 
 //A blocking timer implementation that uses the TIM1 peripheral
+/*
 void mTimer(uint16_t count){
 	 uint16_t i = 0;
-	 /* Set the Waveform gen. mode bit description to clear
-     on compare mode only */ 
+	 //Set the Waveform gen. mode bit description to clear on compare mode only
 	TCCR1B |= _BV(WGM12);
-	/* Set output compare register for 1000 cycles, 1ms */
+	//Set output compare register for 1000 cycles, 1ms
 	OCR1A = 0x03EB;
 	//enable output compare interrupts by unmasking them
 	TIMSK1 |= 0x02;
@@ -102,3 +102,4 @@ void mTimer(uint16_t count){
 	TCCR1B &= ~_BV(CS11); //shut off the timer
 	return;	
 }
+*/

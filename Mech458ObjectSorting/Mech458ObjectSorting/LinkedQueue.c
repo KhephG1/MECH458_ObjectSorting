@@ -23,7 +23,9 @@
                          /* Make sure you read it!!! */
 /* global variables */
 /* Avoid using these */
-#define WAIT_MS (2000)
+#define WAIT_MS (20)
+#define DEBOUNCE (20)
+void display(link **head, link **tail);
 // A blocking timer implementation that uses the TIM1 peripheral
 void mTimer(uint16_t count)
 {
@@ -64,7 +66,6 @@ int main()
 
     link *head;    /* The ptr to the head of the queue */
     link *tail;    /* The ptr to the tail of the queue */
-    element eTest; /* A variable to hold the aggregate data type known as element */
 
     DDRC = 0xFF; /* Used for debugging purposes only LEDs on PORTC */
     DDRA = 0x00; /* Set direction of Pin A to be used as an input*/
@@ -72,9 +73,11 @@ int main()
     setup(&head, &tail);
     while (1)
     {
-        while (*PINA & 0x4 == 0)
+        while ((PINA & 0x4) != 0)
             ;
-        uint8_t input = *PINA & 0x3;
+		//debounce
+		mTimer(DEBOUNCE);
+        uint8_t input = PINA & 0x3;
         button_handler(input, &head, &tail);
     }
 
@@ -91,15 +94,14 @@ void button_handler(char input, link **head, link **tail)
     mTimer(20);
     link *newLink;
     link *oldLink;
-    int size = size(head, tail);
-    if (size < 3)
+    int list_size = size(head, tail);
+    if (list_size < 3)
     {
-        // clear previous output
-        *PCOUT = 0;
+
         // first 3 inputs: Create new link and store the value in the element
         initLink(&newLink);
         newLink->e.itemCode = (PINA &= 0x3); // masks input to only first two bits
-        enqueue(head, tail, newLink);
+        enqueue(head, tail, &newLink);
     }
     else
     {
@@ -108,25 +110,27 @@ void button_handler(char input, link **head, link **tail)
         initLink(&newLink);
         newLink->e.itemCode = (PINA &= 0x3); // masks input to only first two bits
         enqueue(head, tail, &newLink);
-        display(head);
+        display(head, tail);
     }
 } // button_hander
 
 void display(link **head, link **tail)
 {
     link *temp = *head;
-    PCOUT |= temp->e.itemCode & 0x3;
+    PORTC |= temp->e.itemCode & 0x3;
     temp = temp->next;
     mTimer(WAIT_MS);
-    PCOUT |= ((temp->e.itemCode & 0x3) << 2);
+    PORTC |= ((temp->e.itemCode & 0x3) << 2);
     temp = temp->next;
     mTimer(WAIT_MS);
-    PCOUT |= ((temp->e.itemCode & 0x3) << 2);
+    PORTC |= ((temp->e.itemCode & 0x3) << 4);
     temp = temp->next;
     mTimer(WAIT_MS);
     // clear elements for next iteration
     clearQueue(head, tail);
-
+	while((PINA & 0x4) == 0);
+	// clear previous output
+	PORTC = 0;
 } // display
 
 /**************************************************************************************

@@ -35,6 +35,6 @@ void 	dequeue		(link **h, link **deQueuedLink);
 element firstValue	(link **h);
 char 	isEmpty		(link **h);
 int 	size		(link **h, link **t);
-void button_handler(char input, link *head, link *tail);
+void button_handler(char input, link **head, link **tail);
 
 

@@ -21,6 +21,7 @@ void msysInit(void){
 	CLKPR = _BV(CLKPCE);
 	CLKPR = _BV(CLKPS0);
 }
+/*
 int main(int argc,char*argv[]) {
 	msysInit();
 	// Sets all pins on PORTL to output
@@ -99,4 +100,4 @@ int main(int argc,char*argv[]) {
 	return (0); 
 	
 }
-
+*/
