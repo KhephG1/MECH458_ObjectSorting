@@ -75,7 +75,6 @@ void mstartTimerAutoReload(uint16_t period_millis){
 }
 
 //A blocking timer implementation that uses the TIM1 peripheral
-/*
 void mTimer(uint16_t count){
 	 uint16_t i = 0;
 	 //Set the Waveform gen. mode bit description to clear on compare mode only
@@ -102,4 +101,3 @@ void mTimer(uint16_t count){
 	TCCR1B &= ~_BV(CS11); //shut off the timer
 	return;	
 }
-*/

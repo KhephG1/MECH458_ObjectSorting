@@ -150,16 +150,25 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Lab4stepper.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="pwm.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="pwm.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Lab1Knightrider.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="LinkedQueue.c">
+    <Compile Include="Lab3Queue.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="LinkedQueue.h">
+    <Compile Include="Lab3Queue.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="main.c">
+    <Compile Include="Lab2Knightrider.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="mgpio.c">

@@ -2,11 +2,15 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+Lab4stepper.c
+
+pwm.c
+
 Lab1Knightrider.c
 
-LinkedQueue.c
+Lab3Queue.c
 
-main.c
+Lab2Knightrider.c
 
 mgpio.c
 
