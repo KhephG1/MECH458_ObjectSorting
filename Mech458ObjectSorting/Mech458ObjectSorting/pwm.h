@@ -16,6 +16,6 @@
 void init_TIM0();
 void init_pwm(uint8_t duty_cycle_counts, uint16_t prescaler);
 uint8_t rotate(uint8_t dir, uint8_t steps, uint8_t current_step);
-
+void set_duty_cycle(uint8_t duty_cycle_counts);
 
 #endif

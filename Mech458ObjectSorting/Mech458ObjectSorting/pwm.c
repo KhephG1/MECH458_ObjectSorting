@@ -46,6 +46,11 @@ void init_pwm(uint8_t duty_cycle_counts, uint16_t prescaler){
 	DDRB |= _BV(PB7);
 }
 
+void set_duty_cycle(uint8_t duty_cycle_counts){
+	OCR0A = duty_cycle_counts;
+	DDRB |= _BV(PB7);
+}
+
 
 uint8_t rotate(uint8_t dir, uint8_t steps, uint8_t current_step){
 	uint8_t next_step;
