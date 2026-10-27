@@ -9,14 +9,14 @@
 #include "dcmotor.h"
 
 
-//function that turns DC motor clockwise, turning the conveyor forwards
+//Function that turns the DC motor counter clockwise, turning the conveyor forwards
 void forward(){
-	PORTB = (INA | ENA | ENB);
+	PORTB = (INB | ENA | ENB);
 }
 
-//Function that turns the DC motor counter clockwise, turning the conveyor backwards
+//function that turns DC motor clockwise, turning the conveyor backwards
 void reverse(){
-	PORTB = (INB | ENA | ENB);
+	PORTB = (INA | ENA | ENB);
 }
 
 //Function stops the DC motor
