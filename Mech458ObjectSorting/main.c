@@ -2,7 +2,7 @@
 // # MILESTONE: 5
 // # PROGRAM: 1
 // # PROJECT: Final Demo
-// # GROUP: X
+// # GROUP: 2
 // # NAME 1: Khephren, Gould, V01012827
 // # NAME 2: Clifton, Tollefson, V01004341
 // # DESC: This program implements the main function for the Mech458 final report
