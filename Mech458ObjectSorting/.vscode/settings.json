@@ -1,9 +1,0 @@
-{
-  "editor.formatOnSave": true,
-  "C_Cpp.clang_format_path": "",
-  "[c]": {
-    "editor.defaultFormatter": "ms-vscode.cpptools"
-  },
-  "C_Cpp.codeAnalysis.runOnSave": true,
-  "C_Cpp.clang-tidy.enabled": true
-}
