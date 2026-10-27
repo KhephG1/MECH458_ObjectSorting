@@ -23,7 +23,7 @@ int main()
     // Configure I/O and interrupts
     cli();
     init_breadboard_io();
-    init_adc(CONTINUOUS, AVCC, ADC_IRQ_ENABLE, ADC_FREE_RUN, ADC_8_BITS);
+    init_adc(CONTINUOUS, AVCC, ADC_IRQ_ENABLE, ADC_8_BITS);
     uint16_t adc_val = 0;
     uint8_t switches_val = 0;
     // ALL I/O and Interrupts configured

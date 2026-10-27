@@ -13,7 +13,7 @@ uint16_t ADC_result = 0;
 uint8_t ADC_result_flag = 0;
 
 int16_t init_adc(ADC_MODE_t mode, ADC_VREF_t vref, ADC_INTERRUPT_STATUS_t irq,
-                 ADC_TRIGGER_SOURCE_t trigger, ADC_BITWIDTH_t bits)
+                 ADC_BITWIDTH_t bits)
 {
     ADCSRA |= _BV(ADEN); // enable ADC
     // configure the ADC reference voltage

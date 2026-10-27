@@ -41,6 +41,6 @@ typedef enum
 float adc_code_to_volts(int16_t adc_code);
 int16_t read_adc(uint16_t *buffer);
 int16_t init_adc(ADC_MODE_t mode, ADC_VREF_t vref, ADC_INTERRUPT_STATUS_t irq,
-                 ADC_TRIGGER_SOURCE_t trigger, ADC_BITWIDTH_t bits);
+                 ADC_BITWIDTH_t bits);
 
 #endif
