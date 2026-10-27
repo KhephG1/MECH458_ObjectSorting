@@ -16,11 +16,11 @@
 #include "lcd.h"
 
 #define KNIGHTRIDER_PERIOD (50)
-void msysInit(void){
-	//set system clock to 8MHz
-	CLKPR = _BV(CLKPCE);
-	CLKPR = _BV(CLKPS0);
-}
+//void msysInit(void){
+	////set system clock to 8MHz
+	//CLKPR = _BV(CLKPCE);
+	//CLKPR = _BV(CLKPS0);
+//}
 /*
 int main(int argc,char*argv[]) {
 	msysInit();

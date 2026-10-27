@@ -14,7 +14,7 @@ void init_TIM0(){
 	//put TIM0 in Fast PWM mode (Step 1)
 	TCCR0A |= (_BV(WGM00) | _BV(WGM01));
 	//Enable output compare A interrupt (step 2)
-	TIMSK0 |= _BV(OCIE0A);
+	//TIMSK0 |= _BV(OCIE0A);
 	//Clear on compare match (step 3)
 	TCCR0A |= _BV(COM0A1);
 	
@@ -48,7 +48,6 @@ void init_pwm(uint8_t duty_cycle_counts, uint16_t prescaler){
 
 void set_duty_cycle(uint8_t duty_cycle_counts){
 	OCR0A = duty_cycle_counts;
-	DDRB |= _BV(PB7);
 }
 
 
