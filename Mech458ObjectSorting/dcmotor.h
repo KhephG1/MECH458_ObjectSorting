@@ -16,8 +16,8 @@
 #define ENA (1 << PB2)
 #define ENB (1 << PB3)
 
-DDRB = 0xFF;	//sets direction of port B to output
 
+void init_dc_motor();
 void forward();
 void reverse();
 void break_hi();

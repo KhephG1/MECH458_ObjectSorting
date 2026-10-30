@@ -4,6 +4,7 @@
  */
 #ifndef ADC_H
 #define ADC_H
+#include "avr/io.h"
 typedef enum
 {
     AREF = 0,
@@ -31,7 +32,7 @@ typedef enum
 } ADC_INTERRUPT_STATUS_t;
 
 float adc_code_to_volts(int16_t adc_code);
-int16_t read_adc(uint16_t *buffer);
+int16_t read_adc();
 int16_t init_adc(ADC_MODE_t mode, ADC_VREF_t vref, ADC_INTERRUPT_STATUS_t irq,
                  ADC_BITWIDTH_t bits);
 

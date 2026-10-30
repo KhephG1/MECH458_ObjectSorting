@@ -82,7 +82,7 @@ void mTimer(uint16_t count){
 	//Set output compare register for 1000 cycles, 1ms
 	OCR1A = 0x03EB;
 	//enable output compare interrupts by unmasking them
-	TIMSK1 |= 0x02;
+	//TIMSK1 |= 0x02;
 	//clear the interrupt for output compare
 	TIFR1 = _BV(OCF1A);
 	//clear the timer count before starting

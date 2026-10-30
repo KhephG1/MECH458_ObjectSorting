@@ -7,8 +7,8 @@ void init_breadboard_io()
     DDRA = 0x00;
 }
 
-void write_red_leds(uint8_t value) { RED_LEDS_PORT = value; }
-void write_yb_leds(uint8_t value)
+void write_red_leds(uint8_t value) { PORTC = value; }
+void write_yg_leds(uint8_t value)
 {
     YB_LEDS_PORT = YB_LEDS_PORT & ~(0xF0) | (value << 4);
 }

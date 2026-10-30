@@ -6,11 +6,11 @@
 #include <avr/interrupt.h>
 #include <avr/io.h>
 #define V_AREF (5)
-uint8_t bitwidth = 0;
-uint8_t adc_mode = 0;
-uint8_t adc_vref = 0;
-uint16_t ADC_result = 0;
-uint8_t ADC_result_flag = 0;
+volatile uint8_t bitwidth = 0;
+volatile uint8_t adc_mode = 0;
+volatile uint8_t adc_vref = 0;
+volatile uint16_t ADC_result = 0;
+volatile uint8_t ADC_result_flag = 0;
 
 int16_t init_adc(ADC_MODE_t mode, ADC_VREF_t vref, ADC_INTERRUPT_STATUS_t irq,
                  ADC_BITWIDTH_t bits)
@@ -41,7 +41,7 @@ int16_t init_adc(ADC_MODE_t mode, ADC_VREF_t vref, ADC_INTERRUPT_STATUS_t irq,
     {
         ADMUX |= _BV(ADLAR);
         // presclaer of 16
-        ADCSRA |= BV_(ADPS2);
+        ADCSRA |= _BV(ADPS2);
         bitwidth = 8;
     }
     else
@@ -66,15 +66,16 @@ int16_t init_adc(ADC_MODE_t mode, ADC_VREF_t vref, ADC_INTERRUPT_STATUS_t irq,
     return 0;
 }
 
-int16_t read_adc(uint16_t *buffer)
+int16_t read_adc()
 {
     if (adc_mode == CONTINUOUS)
     {
+	
         if (ADC_result_flag)
         {
-            *buffer = ADC_result;
-            ADC_result_flag = 0;
-            return 0;
+		    ADC_result_flag = 0;
+            return ADC_result;
+           
         }
         else
         {
@@ -90,13 +91,11 @@ int16_t read_adc(uint16_t *buffer)
             ; // poll for conv complete
         if (bitwidth == 8)
         {
-            *buffer = ADCH;
-            return 0;
+            return ADCH;
         }
         else
         {
-            *buffer = ADC;
-            return 0;
+            return ADC;
         }
     }
 }
@@ -123,12 +122,15 @@ float adc_code_to_volts(int16_t adc_code)
     default:
         break;
     }
+	return 0.0f;
 }
 
 ISR(ADC_vect)
 {
+	
     if (bitwidth == 8)
     {
+		
         ADC_result = ADCH;
     }
     else
