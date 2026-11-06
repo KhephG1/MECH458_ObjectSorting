@@ -3,6 +3,7 @@
  *a library to interface with the adc on the atmega328
  */
 #include "adc.h"
+#include "lcd.h"
 #include <avr/interrupt.h>
 #include <avr/io.h>
 #define V_AREF (5)
@@ -70,12 +71,11 @@ int16_t read_adc()
 {
     if (adc_mode == CONTINUOUS)
     {
-	
+
         if (ADC_result_flag)
         {
-		    ADC_result_flag = 0;
+            ADC_result_flag = 0;
             return ADC_result;
-           
         }
         else
         {
@@ -122,15 +122,15 @@ float adc_code_to_volts(int16_t adc_code)
     default:
         break;
     }
-	return 0.0f;
+    return 0.0f;
 }
 
 ISR(ADC_vect)
 {
-	
+
     if (bitwidth == 8)
     {
-		
+
         ADC_result = ADCH;
     }
     else

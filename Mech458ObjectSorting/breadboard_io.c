@@ -10,7 +10,7 @@ void init_breadboard_io()
 void write_red_leds(uint8_t value) { PORTC = value; }
 void write_yg_leds(uint8_t value)
 {
-    YB_LEDS_PORT = YB_LEDS_PORT & ~(0xF0) | (value << 4);
+    YG_LEDS_PORT = YG_LEDS_PORT & ~(0xF0) | (value << 4);
 }
 void read_switches(uint8_t *buf) { *buf = SLIDE_SWITCH_PORT & 0x0F; }
 uint8_t read_pb1(PB_POLARITY_t polarity)
