@@ -5,6 +5,7 @@ void init_breadboard_io()
     DDRC = 0xFF;
     DDRL = 0xF0;
     DDRA = 0x00;
+    DDRD = 0x00;
 }
 
 void write_red_leds(uint8_t value) { PORTC = value; }

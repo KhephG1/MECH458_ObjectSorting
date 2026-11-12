@@ -25,11 +25,12 @@ int main()
     // set system clock to 8MHz
     CLKPR = _BV(CLKPCE);
     CLKPR = _BV(CLKPS0);
+
     // Configure I/O and interrupts
     cli();
     // config the external interrupt ======================================
-    EIMSK |= (_BV(INT2));               // enable INT2 for direction switch
-    EICRA |= (_BV(ISC21) | _BV(ISC20)); // rising edge interrupt
+    EIMSK |= (_BV(INT2));  // enable INT2 for direction switch
+    EICRA |= (_BV(ISC21)); // falling edge
 
     EIMSK |= (_BV(INT3)); // enable INT3 for kill switch
     EICRA |= _BV(ISC31);  // falling edge interrupt
@@ -54,14 +55,18 @@ int main()
         {
 
             LCDWriteIntXY(0, 0, result, 3);
+            int percent = (result * 100) / 255;
+            LCDWriteIntXY(5, 0, percent, 3);
+            LCDWriteStringXY(9, 0, "%");
             set_duty_cycle(result);
         }
         // do pwm stuff
 
         if (kill_switch == 1)
         {
-
+            LCDClear();
             LCDWriteStringXY(0, 0, "Kill Switch");
+
             break_hi();
             while (1)
             {
@@ -98,18 +103,27 @@ int main()
 
 ISR(INT2_vect)
 {
-    write_yg_leds(16);
-    set_direction_flag();
-    break_hi();
 
-    if (direction == 0)
+    mTimer(20);
+    if ((PIND & 0x04) == 0)
     {
-        direction = 1;
+
+        write_yg_leds(16);
+        set_direction_flag();
+        break_hi();
+
+        if (direction == 0)
+        {
+            direction = 1;
+        }
+        else
+        {
+            direction = 0;
+        }
     }
-    else
-    {
-        direction = 0;
-    }
+    while ((PIND & 0x04) == 0)
+        ;
+    mTimer(20);
 }
 
 ISR(INT3_vect) { kill_switch = 1; }

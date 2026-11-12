@@ -87,7 +87,7 @@ int16_t read_adc()
         // one shot
         // start conversion
         ADCSRA |= _BV(ADSC);
-        while (ADCSRA & _BV(ADSC))
+        while (ADC_result_flag == 0)
             ; // poll for conv complete
         if (bitwidth == 8)
         {
