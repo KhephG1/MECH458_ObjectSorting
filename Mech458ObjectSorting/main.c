@@ -1,129 +1,137 @@
-// /* ##################################################################
-// # MILESTONE: 4b
-// # PROGRAM: 1
-// # PROJECT: Final Demo
-// # GROUP: 2
-// # NAME 1: Khephren, Gould, V01012827
-// # NAME 2: Clifton, Tollefson, V01004341
-// # DESC: This program implements the main function for the Mech458 final
-// report # DATA # REVISED
-// ############################################################### *//*
-#include "adc.h"
-#include "breadboard_io.h"
-#include "dcmotor.h"
-#include "lcd.h"
-#include "mtimer.h"
-#include "pwm.h"
+// READ EVERY SINGLE WORD IN THIS PIECE OF CODE...IF YOU DON'T YOU WILL NOT
+// UNDERSTAND THIS!!!!!!! READ EVERY SINGLE WORD IN THIS PIECE OF CODE...IF YOU
+// DON'T YOU WILL NOT UNDERSTAND THIS!!!!!!! READ EVERY SINGLE WORD IN THIS
+// PIECE OF CODE...IF YOU DON'T YOU WILL NOT UNDERSTAND THIS!!!!!!! READ EVERY
+// SINGLE WORD IN THIS PIECE OF CODE...IF YOU DON'T YOU WILL NOT UNDERSTAND
+// THIS!!!!!!! READ EVERY SINGLE WORD IN THIS PIECE OF CODE...IF YOU DON'T YOU
+// WILL NOT UNDERSTAND THIS!!!!!!! READ EVERY SINGLE WORD IN THIS PIECE OF
+// CODE...IF YOU DON'T YOU WILL NOT UNDERSTAND THIS!!!!!!!
+
+// Open up the document in START -> WinAVR -> AVR LibC -> User Manual ->
+// avr/interrupt.h Chapter 15, in Full Manual... THIS HAS A LOT OF IMPORTANT
+// INFO...I have mentioned this at least 3 times!!!
+
+// For those that are still having major problems, I've seen about 1/3 of the
+// class with major problems in code structure. If you are still having major
+// problems with your code, it's time to do a VERY quick overhaul. I've provided
+// a skeleton structure with an example using two input capture interrupts on
+// PORTDA0 and A3 Please try this in the debugger.
+
+// Create a watch variable on STATE. To do this right click on the variable
+// STATE and then Add Watch 'STATE'. You can see how the variable changes as you
+// click on PINDA0 or PINDA3. Note that the interrupt catches a rising edge. You
+// modify this to suit your needs.
+
 #include <avr/interrupt.h>
 #include <avr/io.h>
-volatile uint8_t kill_switch = 0;
-volatile uint8_t direction = 0;
-// volatile uint8_t direction_flag = 0;
-int main()
+
+// Global Variable
+volatile char STATE;
+
+int main(int argc, char *argv[])
 {
 
-    // set system clock to 8MHz
-    CLKPR = _BV(CLKPCE);
-    CLKPR = _BV(CLKPS0);
+    CLKPR = 0x80;
+    CLKPR = 0x01; //  sets system clock to 8MHz
 
-    // Configure I/O and interrupts
-    cli();
-    // config the external interrupt ======================================
-    EIMSK |= (_BV(INT2));  // enable INT2 for direction switch
-    EICRA |= (_BV(ISC21)); // falling edge
+    STATE = 0;
 
-    EIMSK |= (_BV(INT3)); // enable INT3 for kill switch
-    EICRA |= _BV(ISC31);  // falling edge interrupt
+    cli(); // Disables all interrupts
 
-    init_TIM0();
-    init_pwm(127, 64);
-    init_dc_motor();
-    init_breadboard_io();
-    init_adc(ONE_SHOT, AVCC, ADC_IRQ_ENABLE, ADC_8_BITS);
-    // Initialize LCD module
-    InitLCD(LS_BLINK | LS_ULINE);
-    LCDClear();
-    // ALL I/O and Interrupts configured
-    sei();
+    DDRD = 0b11110000; // Going to set up INT2 & INT3 on PORTD
+    DDRC = 0xFF;       // just use as a display
 
-    while (1)
+    // Set up the Interrupt 0,3 options
+    // External Interrupt Control Register A - EICRA (pg 110 and under the
+    // EXT_INT tab to the right
+    // Set Interrupt sense control to catch a rising edge
+    EICRA |= _BV(ISC21) | _BV(ISC20);
+    EICRA |= _BV(ISC31) | _BV(ISC30);
+
+    //	EICRA &= ~_BV(ISC21) & ~_BV(ISC20); /* These lines would undo the above
+    //two lines */ 	EICRA &= ~_BV(ISC31) & ~_BV(ISC30); /* Nice little trick */
+
+    // See page 112 - EIFR External Interrupt Flags...notice how they reset on
+    // their own in 'C'...not in assembly
+    EIMSK |= 0x0C;
+
+    // Enable all interrupts
+    sei(); // Note this sets the Global Enable for all interrupts
+
+    goto POLLING_STAGE;
+
+// POLLING STATE
+POLLING_STAGE:
+    PORTC |= 0xF0; // Indicates this state is active
+    switch (STATE)
     {
-        int16_t result = read_adc();
+    case (0):
+        goto POLLING_STAGE;
+        break; // not needed but syntax is correct
+    case (1):
+        goto MAGNETIC_STAGE;
+        break;
+    case (2):
+        goto REFLECTIVE_STAGE;
+        break;
+    case (3):
+        goto BUCKET_STAGE;
+        break;
+    case (5):
+        goto END;
+    default:
+        goto POLLING_STAGE;
+    } // switch STATE
 
-        mTimer(50);
-        if (result != -1)
-        {
+MAGNETIC_STAGE:
+    // Do whatever is necessary HERE
+    PORTC = 0x01; // Just output pretty lights know you made it here
+    // Reset the state variable
+    STATE = 0;
+    goto POLLING_STAGE;
 
-            LCDWriteIntXY(0, 0, result, 3);
-            int percent = (result * 100) / 255;
-            LCDWriteIntXY(5, 0, percent, 3);
-            LCDWriteStringXY(9, 0, "%");
-            set_duty_cycle(result);
-        }
-        // do pwm stuff
+REFLECTIVE_STAGE:
+    // Do whatever is necessary HERE
+    PORTC = 0x04; // Just output pretty lights know you made it here
+    // Reset the state variable
+    STATE = 0;
+    goto POLLING_STAGE;
 
-        if (kill_switch == 1)
-        {
-            LCDClear();
-            LCDWriteStringXY(0, 0, "Kill Switch");
+BUCKET_STAGE:
+    // Do whatever is necessary HERE
+    PORTC = 0x08;
+    // Reset the state variable
+    STATE = 0;
+    goto POLLING_STAGE;
 
-            break_hi();
-            while (1)
-            {
-                // do nothing, we are in break state
-                // write_red_leds(0xFF);
-                write_yg_leds(15);
-            }
-        } // kill switch
-        if (is_direction_flag())
-        {
-            LCDWriteStringXY(0, 1, "Flag set");
-            clear_direction_flag();
-            break_hi();
-            if (direction == 0)
-            {
-
-                forward();
-                LCDClear();
-                LCDWriteStringXY(0, 1, "fwd");
-                write_yg_leds(12);
-            }
-            else
-            {
-                reverse();
-                LCDClear();
-                LCDWriteStringXY(0, 1, "back");
-                write_yg_leds(3);
-            }
-            // direction_flag = 0;
-        }
-    }
-    return 0;
-} // end main
-
-ISR(INT2_vect)
-{
-
-    mTimer(20);
-    if ((PIND & 0x04) == 0)
-    {
-
-        write_yg_leds(16);
-        set_direction_flag();
-        break_hi();
-
-        if (direction == 0)
-        {
-            direction = 1;
-        }
-        else
-        {
-            direction = 0;
-        }
-    }
-    while ((PIND & 0x04) == 0)
-        ;
-    mTimer(20);
+END:
+    // The closing STATE ... how would you get here?
+    PORTC = 0xF0; // Indicates this state is active
+    // Stop everything here...'MAKE SAFE'
+    return (0);
 }
 
-ISR(INT3_vect) { kill_switch = 1; }
+/* Set up the External Interrupt 2 Vector */
+ISR(INT2_vect)
+{
+    /* Toggle PORTC bit 2 */
+    STATE = 2;
+}
+
+ISR(INT3_vect)
+{
+    /* Toggle PORTC bit 3 */
+    STATE = 3;
+}
+
+// If an unexpected interrupt occurs (interrupt is enabled and no handler is
+// installed, which usually indicates a bug), then the default action is to
+// reset the device by jumping to the reset vector. You can override this by
+// supplying a function named BADISR_vect which should be defined with ISR() as
+// such. (The name BADISR_vect is actually an alias for __vector_default. The
+// latter must be used inside assembly code in case <avr/interrupt.h> is not
+// included.
+ISR(BADISR_vect)
+{
+    // user code here
+}
