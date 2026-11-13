@@ -23,15 +23,11 @@
 #include "mtimer.h"
 #include <avr/io.h>
 #include <stdlib.h>
-/* Make sure you read it!!! */
-/* global variables */
-/* Avoid using these */
+#define WAIT_MS (20)
 /**************************************************************************************/
 /***************************** SUBROUTINES
  * ********************************************/
 /**************************************************************************************/
-
-#define WAIT_MS (20)
 
 void display(link **head, link **tail)
 {
