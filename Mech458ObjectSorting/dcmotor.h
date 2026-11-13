@@ -11,12 +11,6 @@
 #include "mtimer.h"
 #include <stdint.h>
 
-#define INA (1 << PB0)
-#define INB (1 << PB1)
-#define ENA (1 << PB2)
-#define ENB (1 << PB3)
-
-void init_dc_motor();
 void forward();
 void reverse();
 void break_hi();

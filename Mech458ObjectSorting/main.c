@@ -22,6 +22,9 @@
 // click on PINDA0 or PINDA3. Note that the interrupt catches a rising edge. You
 // modify this to suit your needs.
 
+#include "breadboard_io.h"
+#include "mtimer.h"
+#include "stepper.h"
 #include <avr/interrupt.h>
 #include <avr/io.h>
 
@@ -37,62 +40,57 @@ int main(int argc, char *argv[])
     STATE = 0;
 
     cli(); // Disables all interrupts
-
-    DDRD = 0b11110000; // Going to set up INT2 & INT3 on PORTD
-    DDRC = 0xFF;       // just use as a display
-
-    // Set up the Interrupt 0,3 options
-    // External Interrupt Control Register A - EICRA (pg 110 and under the
-    // EXT_INT tab to the right
-    // Set Interrupt sense control to catch a rising edge
+    // initialize all the i/o for the apparatus
+    init_breadboard_io();
+    // init_stepper(DUTY_50_PERCENT, PRESCALER_3kHZ);
+    //  Set up the Interrupt 0,3 options
+    //  External Interrupt Control Register A - EICRA (pg 110 and under the
+    //  EXT_INT tab to the right
+    //  Set Interrupt sense control to catch a rising edge
     EICRA |= _BV(ISC21) | _BV(ISC20);
     EICRA |= _BV(ISC31) | _BV(ISC30);
 
     //	EICRA &= ~_BV(ISC21) & ~_BV(ISC20); /* These lines would undo the above
-    //two lines */ 	EICRA &= ~_BV(ISC31) & ~_BV(ISC30); /* Nice little trick */
+    // two lines */ 	EICRA &= ~_BV(ISC31) & ~_BV(ISC30); /* Nice little trick
+    // */
 
     // See page 112 - EIFR External Interrupt Flags...notice how they reset on
     // their own in 'C'...not in assembly
-    EIMSK |= 0x0C;
 
     // Enable all interrupts
     sei(); // Note this sets the Global Enable for all interrupts
-
+    // home the bucket
+    home_on_black();
+    while (1) // wait
+        ;
     goto POLLING_STAGE;
 
 // POLLING STATE
 POLLING_STAGE:
-    PORTC |= 0xF0; // Indicates this state is active
-    switch (STATE)
+    while (1)
     {
-    case (0):
-        goto POLLING_STAGE;
-        break; // not needed but syntax is correct
-    case (1):
-        goto MAGNETIC_STAGE;
-        break;
-    case (2):
-        goto REFLECTIVE_STAGE;
-        break;
-    case (3):
-        goto BUCKET_STAGE;
-        break;
-    case (5):
-        goto END;
-    default:
-        goto POLLING_STAGE;
-    } // switch STATE
-
-MAGNETIC_STAGE:
-    // Do whatever is necessary HERE
-    PORTC = 0x01; // Just output pretty lights know you made it here
-    // Reset the state variable
-    STATE = 0;
-    goto POLLING_STAGE;
+        PORTC |= 0xF0; // Indicates this state is active
+        switch (STATE)
+        {
+        case (0):
+            goto POLLING_STAGE;
+            break; // not needed but syntax is correct
+        case (1):
+            goto REFLECTIVE_STAGE;
+            break;
+        case (2):
+            goto BUCKET_STAGE;
+            break;
+        case (3):
+            goto END;
+        default:
+            goto POLLING_STAGE;
+        } // switch STATE
+    }
 
 REFLECTIVE_STAGE:
     // Do whatever is necessary HERE
-    PORTC = 0x04; // Just output pretty lights know you made it here
+    PORTC = 0x01; // Just output pretty lights know you made it here
     // Reset the state variable
     STATE = 0;
     goto POLLING_STAGE;
