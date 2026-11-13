@@ -5,5 +5,10 @@
 #define PORT(x) _CONCAT(PORT, x)
 #define PIN(x) _CONCAT(PIN, x)
 #define DDR(x) _CONCAT(DDR, x)
-
+typedef enum {
+    ALUMINIUM,
+    STEEL,
+    WHITE,
+    BLACK
+} ObjectType;
 #endif
