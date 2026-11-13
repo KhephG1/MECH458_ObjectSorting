@@ -19,77 +19,39 @@
 */
 
 /* include libraries */
-#include "LinkedQueue.h" /* This is the attached header file, which cleans things up */
+#include "linkedqueue.h" /* This is the attached header file, which cleans things up */
+#include "mtimer.h"
 #include <avr/io.h>
 #include <stdlib.h>
 /* Make sure you read it!!! */
 /* global variables */
 /* Avoid using these */
-#define WAIT_MS (20)
-#define DEBOUNCE (20)
-void display(link **head, link **tail);
-// A blocking timer implementation that uses the TIM1 peripheral
-void mTimer(uint16_t count)
-{
-    uint16_t i = 0;
-    // set the timer clock prescaler to 8
-    TCCR1B |= _BV(CS11);
-    // wavegen mode 11 automatically clears count after OCR1A is reached
-    TCCR1B |= _BV(WGM12);
-    // sets the output compare register to 1003
-    OCR1A = 0x03EB;
-    // clear the count register
-    TCNT1 = 0x0000;
-    // enable output compare interrupts
-    TIMSK1 |= 0x02;
-    // clear the output compare interrupt flag
-    TIFR1 = _BV(OCF1A);
-    while (i < count)
-    {
-        // check for output compare interrupt flag
-        if ((TIFR1 & 0x02) == 0x02)
-        {
-            // clear the output compare interrupt flag
-            TIFR1 = _BV(OCF1A);
-            // 1ms has passed, increment the count
-            i++;
-        }
-    }
-    // shut off the timer
-    TCCR1B &= ~_BV(CS11);
-    return;
-}
-
-/* main routine
-   You need to add the mtimer function to this project.    */
-
-int main()
-{
-
-    link *head; /* The ptr to the head of the queue */
-    link *tail; /* The ptr to the tail of the queue */
-
-    DDRC = 0xFF; /* Used for debugging purposes only LEDs on PORTC */
-    DDRA = 0x00; /* Set direction of Pin A to be used as an input*/
-
-    setup(&head, &tail);
-    while (1)
-    {
-        while ((PINA & 0x4) != 0)
-            ;
-        // debounce
-        mTimer(DEBOUNCE);
-        uint8_t input = PINA & 0x3;
-        button_handler(input, &head, &tail);
-    }
-
-    return (0);
-} /* main */
-
 /**************************************************************************************/
 /***************************** SUBROUTINES
  * ********************************************/
 /**************************************************************************************/
+
+#define WAIT_MS (20)
+
+void display(link **head, link **tail)
+{
+    link *temp = *head;
+    PORTC |= temp->e.itemCode & 0x3;
+    temp = temp->next;
+    mTimer(WAIT_MS);
+    PORTC |= ((temp->e.itemCode & 0x3) << 2);
+    temp = temp->next;
+    mTimer(WAIT_MS);
+    PORTC |= ((temp->e.itemCode & 0x3) << 4);
+    temp = temp->next;
+    mTimer(WAIT_MS);
+    // clear elements for next iteration
+    clearQueue(head, tail);
+    while ((PINA & 0x4) == 0)
+        ;
+    // clear previous output
+    PORTC = 0;
+} // display
 
 // handler function for when the button is pressed
 void button_handler(char input, link **head, link **tail)
@@ -119,26 +81,6 @@ void button_handler(char input, link **head, link **tail)
         display(head, tail);
     }
 } // button_hander
-
-void display(link **head, link **tail)
-{
-    link *temp = *head;
-    PORTC |= temp->e.itemCode & 0x3;
-    temp = temp->next;
-    mTimer(WAIT_MS);
-    PORTC |= ((temp->e.itemCode & 0x3) << 2);
-    temp = temp->next;
-    mTimer(WAIT_MS);
-    PORTC |= ((temp->e.itemCode & 0x3) << 4);
-    temp = temp->next;
-    mTimer(WAIT_MS);
-    // clear elements for next iteration
-    clearQueue(head, tail);
-    while ((PINA & 0x4) == 0)
-        ;
-    // clear previous output
-    PORTC = 0;
-} // display
 
 /**************************************************************************************
  * DESC: initializes the linked queue to 'NULL' status

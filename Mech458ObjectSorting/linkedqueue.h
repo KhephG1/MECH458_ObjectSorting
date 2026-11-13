@@ -3,8 +3,8 @@
 /* Type definitions */
 typedef struct
 {
-    ObjectType class; /* stores a number describing the element */
-    char stage;    /* 0: part is built, 1: part not built, 2: part is shipped */
+    ObjectType itemCode; /* stores a number describing the element */
+    char stage; /* 0: part is built, 1: part not built, 2: part is shipped */
 } element;
 
 typedef struct link
