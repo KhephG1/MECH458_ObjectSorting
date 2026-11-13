@@ -28,56 +28,6 @@
 /***************************** SUBROUTINES
  * ********************************************/
 /**************************************************************************************/
-
-void display(link **head, link **tail)
-{
-    link *temp = *head;
-    PORTC |= temp->e.itemCode & 0x3;
-    temp = temp->next;
-    mTimer(WAIT_MS);
-    PORTC |= ((temp->e.itemCode & 0x3) << 2);
-    temp = temp->next;
-    mTimer(WAIT_MS);
-    PORTC |= ((temp->e.itemCode & 0x3) << 4);
-    temp = temp->next;
-    mTimer(WAIT_MS);
-    // clear elements for next iteration
-    clearQueue(head, tail);
-    while ((PINA & 0x4) == 0)
-        ;
-    // clear previous output
-    PORTC = 0;
-} // display
-
-// handler function for when the button is pressed
-void button_handler(char input, link **head, link **tail)
-{
-    mTimer(20);
-    link *newLink;
-    link *oldLink;
-    int list_size = size(head, tail);
-    if (list_size < 3)
-    {
-
-        // first 3 inputs: Create new link and store the value in the element
-        initLink(&newLink);
-        newLink->e.itemCode =
-            (PINA &= 0x3); // masks input to only first two bits
-        enqueue(head, tail, &newLink);
-    }
-    else
-    {
-        // this is the 4th input: Remove from front of queue and add new item to
-        // end of queue
-        dequeue(head, &oldLink);
-        initLink(&newLink);
-        newLink->e.itemCode =
-            (PINA &= 0x3); // masks input to only first two bits
-        enqueue(head, tail, &newLink);
-        display(head, tail);
-    }
-} // button_hander
-
 /**************************************************************************************
  * DESC: initializes the linked queue to 'NULL' status
  * INPUT: the head and tail pointers by reference

@@ -24,6 +24,7 @@
 
 #include "breadboard_io.h"
 #include "dcmotor.h"
+#include "linkedqueue.h"
 #include "mtimer.h"
 #include "stepper.h"
 #include <avr/interrupt.h>
@@ -34,6 +35,8 @@ volatile char STATE;
 
 int main(int argc, char *argv[])
 {
+    link *head; /* The ptr to the head of the queue */
+    link *tail; /* The ptr to the tail of the queue */
 
     CLKPR = 0x80;
     CLKPR = 0x01; //  sets system clock to 8MHz
@@ -64,7 +67,8 @@ int main(int argc, char *argv[])
     init_breadboard_io();
     // initialize pwm and tim 0
     init_dcmotor(DUTY_50_PERCENT, PRESCALER_3kHZ);
-
+    // initialize the FIFO
+    setup(&head, &tail);
     //	EICRA &= ~_BV(ISC21) & ~_BV(ISC20); /* These lines would undo the above
     // two lines */ 	EICRA &= ~_BV(ISC31) & ~_BV(ISC30); /* Nice little trick
     // */
@@ -92,6 +96,7 @@ POLLING_STAGE:
         break;
     case (2):
         goto BUCKET_STAGE;
+
         break;
     case (3):
         goto END;
