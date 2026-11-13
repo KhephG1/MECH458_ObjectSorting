@@ -7,10 +7,10 @@
 #include "dcmotor.h"
 #include "avr/interrupt.h"
 #include "avr/io.h"
+#include "breadboard_io.h"
 
 uint8_t direction_flag = 0;
 
-void init_dc_motor() { DDRB = 0xFF; } // sets direction of port B to output
 // Function that turns the DC motor counter clockwise, turning the conveyor
 // forwards
 void forward() { PORTB = (INB | ENA | ENB); }
