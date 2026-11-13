@@ -15,13 +15,6 @@
 // Rotation directions for rotate()
 #define CW 1
 #define CCW 0
-// configuration for the stepper: Prescaler sets pwm frequency (should remain at
-// 3k) duty cycle sets speed (50% for now optimize in the future)
-#define DUTY_50_PERCENT (128)
-#define PRESCALER_3kHZ (8)
-
-// Bit masks for PORTA (enable and coil drive pins of the motor driver)
-
 /* init_stepper
  * Puts Timer 0 in Fast PWM mode (non-inverting on OC0A), sets the prescaler and
  * sets the initial duty cycle. The PWM frequency is f = f_clk / (prescaler *

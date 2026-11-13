@@ -1,0 +1,4 @@
+/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/build/CMakeFiles/firmware.dir
+/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/build/CMakeFiles/flash.dir
+/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/build/CMakeFiles/edit_cache.dir
+/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/build/CMakeFiles/rebuild_cache.dir

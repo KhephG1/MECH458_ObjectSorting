@@ -24,7 +24,6 @@
 
 #include "breadboard_io.h"
 #include "dcmotor.h"
-#include "pwm.h"
 #include "mtimer.h"
 #include "stepper.h"
 #include <avr/interrupt.h>
@@ -63,15 +62,8 @@ int main(int argc, char *argv[])
     EIMSK |= _BV(INT3);
     // initialize all the i/o for the apparatus
     init_breadboard_io();
-     init_TIM0();
-    init_pwm(127, 64);
-    // init_stepper(DUTY_50_PERCENT, PRESCALER_3kHZ);
-    //  Set up the Interrupt 0,3 options
-    //  External Interrupt Control Register A - EICRA (pg 110 and under the
-    //  EXT_INT tab to the right
-    //  Set Interrupt sense control to catch a rising edge
-    EICRA |= _BV(ISC21) | _BV(ISC20);
-    EICRA |= _BV(ISC31) | _BV(ISC30);
+    // initialize pwm and tim 0
+    init_dcmotor(DUTY_50_PERCENT, PRESCALER_3kHZ);
 
     //	EICRA &= ~_BV(ISC21) & ~_BV(ISC20); /* These lines would undo the above
     // two lines */ 	EICRA &= ~_BV(ISC31) & ~_BV(ISC30); /* Nice little trick
@@ -82,7 +74,7 @@ int main(int argc, char *argv[])
 
     // Enable all interrupts
     sei(); // Note this sets the Global Enable for all interrupts
-
+    // start the conveyor
     forward();
     // home the bucket
     home_on_black();

@@ -1,0 +1,819 @@
+Archive member included to satisfy reference by file (symbol)
+
+/usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_divmodhi4.o)
+                              CMakeFiles/firmware.dir/lcd.c.obj (__divmodhi4)
+/usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_exit.o)
+                              /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/crtatmega2560.o (exit)
+/usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_copy_data.o)
+                              CMakeFiles/firmware.dir/stepper.c.obj (__do_copy_data)
+/usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_clear_bss.o)
+                              CMakeFiles/firmware.dir/adc.c.obj (__do_clear_bss)
+/usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_udivmodhi4.o)
+                              /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_divmodhi4.o) (__udivmodhi4)
+/usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(floatsisf.o)
+                              CMakeFiles/firmware.dir/adc.c.obj (__floatsisf)
+/usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(mulsf3.o)
+                              CMakeFiles/firmware.dir/adc.c.obj (__mulsf3)
+/usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(mulsf3x.o)
+                              /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(mulsf3.o) (__mulsf3x)
+/usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(fp_inf.o)
+                              /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(mulsf3x.o) (__fp_inf)
+/usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(fp_nan.o)
+                              /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(mulsf3x.o) (__fp_nan)
+/usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(fp_pscA.o)
+                              /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(mulsf3x.o) (__fp_pscA)
+/usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(fp_pscB.o)
+                              /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(mulsf3x.o) (__fp_pscB)
+/usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(fp_round.o)
+                              /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(mulsf3.o) (__fp_round)
+/usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(fp_split3.o)
+                              /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(mulsf3x.o) (__fp_split3)
+/usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(fp_zero.o)
+                              /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(mulsf3x.o) (__fp_szero)
+/usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libc.a(malloc.o)
+                              CMakeFiles/firmware.dir/linkedqueue.c.obj (malloc)
+
+Discarded input sections
+
+ .data          0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/crtatmega2560.o
+ .bss           0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/crtatmega2560.o
+ .text          0x00000000        0x0 CMakeFiles/firmware.dir/adc.c.obj
+ .data          0x00000000        0x0 CMakeFiles/firmware.dir/adc.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/firmware.dir/adc.c.obj
+ .text.init_adc
+                0x00000000       0xba CMakeFiles/firmware.dir/adc.c.obj
+ .text.read_adc
+                0x00000000       0x50 CMakeFiles/firmware.dir/adc.c.obj
+ .text.adc_code_to_volts
+                0x00000000       0x96 CMakeFiles/firmware.dir/adc.c.obj
+ .bss.adc_vref  0x00000000        0x1 CMakeFiles/firmware.dir/adc.c.obj
+ .bss.adc_mode  0x00000000        0x1 CMakeFiles/firmware.dir/adc.c.obj
+ .text          0x00000000        0x0 CMakeFiles/firmware.dir/breadboard_io.c.obj
+ .data          0x00000000        0x0 CMakeFiles/firmware.dir/breadboard_io.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/firmware.dir/breadboard_io.c.obj
+ .text.write_red_leds
+                0x00000000        0x4 CMakeFiles/firmware.dir/breadboard_io.c.obj
+ .text.write_yg_leds
+                0x00000000       0x12 CMakeFiles/firmware.dir/breadboard_io.c.obj
+ .text.read_pb1
+                0x00000000       0x10 CMakeFiles/firmware.dir/breadboard_io.c.obj
+ .text.read_pb2
+                0x00000000       0x14 CMakeFiles/firmware.dir/breadboard_io.c.obj
+ .text          0x00000000        0x0 CMakeFiles/firmware.dir/dcmotor.c.obj
+ .data          0x00000000        0x0 CMakeFiles/firmware.dir/dcmotor.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/firmware.dir/dcmotor.c.obj
+ .text.reverse  0x00000000        0x6 CMakeFiles/firmware.dir/dcmotor.c.obj
+ .text.set_direction_flag
+                0x00000000        0x8 CMakeFiles/firmware.dir/dcmotor.c.obj
+ .text.clear_direction_flag
+                0x00000000        0x6 CMakeFiles/firmware.dir/dcmotor.c.obj
+ .text.is_direction_flag
+                0x00000000        0x6 CMakeFiles/firmware.dir/dcmotor.c.obj
+ .text.set_duty_cycle
+                0x00000000        0x4 CMakeFiles/firmware.dir/dcmotor.c.obj
+ .bss.direction_flag
+                0x00000000        0x1 CMakeFiles/firmware.dir/dcmotor.c.obj
+ .text          0x00000000        0x0 CMakeFiles/firmware.dir/lcd.c.obj
+ .data          0x00000000        0x0 CMakeFiles/firmware.dir/lcd.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/firmware.dir/lcd.c.obj
+ .text.LCDBusyLoop
+                0x00000000       0x60 CMakeFiles/firmware.dir/lcd.c.obj
+ .text.LCDByte  0x00000000       0x56 CMakeFiles/firmware.dir/lcd.c.obj
+ .text.InitLCD  0x00000000       0x6e CMakeFiles/firmware.dir/lcd.c.obj
+ .text.LCDWriteString
+                0x00000000       0x1c CMakeFiles/firmware.dir/lcd.c.obj
+ .text.LCDWriteInt
+                0x00000000       0xaa CMakeFiles/firmware.dir/lcd.c.obj
+ .text.LCDGotoXY
+                0x00000000       0x12 CMakeFiles/firmware.dir/lcd.c.obj
+ .comment       0x00000000       0x24 CMakeFiles/firmware.dir/lcd.c.obj
+ .text          0x00000000        0x0 CMakeFiles/firmware.dir/linkedqueue.c.obj
+ .data          0x00000000        0x0 CMakeFiles/firmware.dir/linkedqueue.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/firmware.dir/linkedqueue.c.obj
+ .text.setup    0x00000000        0xe CMakeFiles/firmware.dir/linkedqueue.c.obj
+ .text.initLink
+                0x00000000       0x30 CMakeFiles/firmware.dir/linkedqueue.c.obj
+ .text.enqueue  0x00000000       0x2e CMakeFiles/firmware.dir/linkedqueue.c.obj
+ .text.dequeue  0x00000000       0x20 CMakeFiles/firmware.dir/linkedqueue.c.obj
+ .text.firstValue
+                0x00000000        0xe CMakeFiles/firmware.dir/linkedqueue.c.obj
+ .text.clearQueue
+                0x00000000       0x4a CMakeFiles/firmware.dir/linkedqueue.c.obj
+ .text.display  0x00000000       0x8a CMakeFiles/firmware.dir/linkedqueue.c.obj
+ .text.isEmpty  0x00000000       0x10 CMakeFiles/firmware.dir/linkedqueue.c.obj
+ .text.size     0x00000000       0x1a CMakeFiles/firmware.dir/linkedqueue.c.obj
+ .text.button_handler
+                0x00000000       0xa0 CMakeFiles/firmware.dir/linkedqueue.c.obj
+ .comment       0x00000000       0x24 CMakeFiles/firmware.dir/linkedqueue.c.obj
+ .text          0x00000000        0x0 CMakeFiles/firmware.dir/main.c.obj
+ .data          0x00000000        0x0 CMakeFiles/firmware.dir/main.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/firmware.dir/main.c.obj
+ .text          0x00000000        0x0 CMakeFiles/firmware.dir/mtimer.c.obj
+ .data          0x00000000        0x0 CMakeFiles/firmware.dir/mtimer.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/firmware.dir/mtimer.c.obj
+ .text.mtimerInit
+                0x00000000        0xe CMakeFiles/firmware.dir/mtimer.c.obj
+ .text.mstartTimerOneShot
+                0x00000000       0x44 CMakeFiles/firmware.dir/mtimer.c.obj
+ .text.mstartTimerAutoReload
+                0x00000000       0x4e CMakeFiles/firmware.dir/mtimer.c.obj
+ .text          0x00000000        0x0 CMakeFiles/firmware.dir/stepper.c.obj
+ .data          0x00000000        0x0 CMakeFiles/firmware.dir/stepper.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/firmware.dir/stepper.c.obj
+ .text          0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_divmodhi4.o)
+ .data          0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_divmodhi4.o)
+ .bss           0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_divmodhi4.o)
+ .text.libgcc.mul
+                0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_divmodhi4.o)
+ .text.libgcc.div
+                0x00000000       0x28 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_divmodhi4.o)
+ .text.libgcc   0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_divmodhi4.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_divmodhi4.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_divmodhi4.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_divmodhi4.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_divmodhi4.o)
+ .debug_line    0x00000000       0xb7 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_divmodhi4.o)
+ .debug_line_str
+                0x00000000       0x87 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_divmodhi4.o)
+ .debug_info    0x00000000       0x24 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_divmodhi4.o)
+ .debug_abbrev  0x00000000       0x14 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_divmodhi4.o)
+ .debug_aranges
+                0x00000000       0x20 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_divmodhi4.o)
+ .debug_str     0x00000000       0x93 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_divmodhi4.o)
+ .text          0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_exit.o)
+ .data          0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_exit.o)
+ .bss           0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_exit.o)
+ .text.libgcc.mul
+                0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_exit.o)
+ .text.libgcc.div
+                0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_exit.o)
+ .text.libgcc   0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_exit.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_exit.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_exit.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_exit.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_exit.o)
+ .text          0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_copy_data.o)
+ .data          0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_copy_data.o)
+ .bss           0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_copy_data.o)
+ .text.libgcc.mul
+                0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_copy_data.o)
+ .text.libgcc.div
+                0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_copy_data.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_copy_data.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_copy_data.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_copy_data.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_copy_data.o)
+ .text          0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_clear_bss.o)
+ .data          0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_clear_bss.o)
+ .bss           0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_clear_bss.o)
+ .text.libgcc.mul
+                0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_clear_bss.o)
+ .text.libgcc.div
+                0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_clear_bss.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_clear_bss.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_clear_bss.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_clear_bss.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_clear_bss.o)
+ .text          0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_udivmodhi4.o)
+ .data          0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_udivmodhi4.o)
+ .bss           0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_udivmodhi4.o)
+ .text.libgcc.mul
+                0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_udivmodhi4.o)
+ .text.libgcc.div
+                0x00000000       0x28 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_udivmodhi4.o)
+ .text.libgcc   0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_udivmodhi4.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_udivmodhi4.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_udivmodhi4.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_udivmodhi4.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_udivmodhi4.o)
+ .debug_line    0x00000000       0xbd /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_udivmodhi4.o)
+ .debug_line_str
+                0x00000000       0x87 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_udivmodhi4.o)
+ .debug_info    0x00000000       0x24 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_udivmodhi4.o)
+ .debug_abbrev  0x00000000       0x14 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_udivmodhi4.o)
+ .debug_aranges
+                0x00000000       0x20 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_udivmodhi4.o)
+ .debug_str     0x00000000       0x93 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_udivmodhi4.o)
+ .text          0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(floatsisf.o)
+ .data          0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(floatsisf.o)
+ .bss           0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(floatsisf.o)
+ .text.avr-libc.fplib
+                0x00000000       0x7a /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(floatsisf.o)
+ .text          0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(mulsf3.o)
+ .data          0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(mulsf3.o)
+ .bss           0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(mulsf3.o)
+ .text.avr-libc.fplib
+                0x00000000        0x8 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(mulsf3.o)
+ .text          0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(mulsf3x.o)
+ .data          0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(mulsf3x.o)
+ .bss           0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(mulsf3x.o)
+ .text.avr-libc.fplib
+                0x00000000       0xd2 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(mulsf3x.o)
+ .text          0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(fp_inf.o)
+ .data          0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(fp_inf.o)
+ .bss           0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(fp_inf.o)
+ .text.avr-libc.fplib
+                0x00000000        0xc /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(fp_inf.o)
+ .text          0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(fp_nan.o)
+ .data          0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(fp_nan.o)
+ .bss           0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(fp_nan.o)
+ .text.avr-libc.fplib
+                0x00000000        0x6 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(fp_nan.o)
+ .text          0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(fp_pscA.o)
+ .data          0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(fp_pscA.o)
+ .bss           0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(fp_pscA.o)
+ .text.avr-libc.fplib
+                0x00000000        0xe /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(fp_pscA.o)
+ .text          0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(fp_pscB.o)
+ .data          0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(fp_pscB.o)
+ .bss           0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(fp_pscB.o)
+ .text.avr-libc.fplib
+                0x00000000        0xe /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(fp_pscB.o)
+ .text          0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(fp_round.o)
+ .data          0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(fp_round.o)
+ .bss           0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(fp_round.o)
+ .text.avr-libc.fplib
+                0x00000000       0x22 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(fp_round.o)
+ .text          0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(fp_split3.o)
+ .data          0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(fp_split3.o)
+ .bss           0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(fp_split3.o)
+ .text.avr-libc.fplib
+                0x00000000       0x44 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(fp_split3.o)
+ .text          0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(fp_zero.o)
+ .data          0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(fp_zero.o)
+ .bss           0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(fp_zero.o)
+ .text.avr-libc.fplib
+                0x00000000        0xe /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a(fp_zero.o)
+ .text          0x00000000        0x0 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libc.a(malloc.o)
+ .data          0x00000000        0x6 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libc.a(malloc.o)
+ .bss           0x00000000        0x4 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libc.a(malloc.o)
+ .text.avr-libc
+                0x00000000      0x23a /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libc.a(malloc.o)
+ .comment       0x00000000       0x24 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libc.a(malloc.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00040000         xr
+data             0x00800200         0x00002000         rw!x
+eeprom           0x00810000         0x00001000         rw!x
+fuse             0x00820000         0x00000003         rw!x
+lock             0x00830000         0x00000400         rw!x
+signature        0x00840000         0x00000400         rw!x
+user_signatures  0x00850000         0x00000400         rw!x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+Address of section .data set to 0x800200
+LOAD /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/crtatmega2560.o
+LOAD CMakeFiles/firmware.dir/adc.c.obj
+LOAD CMakeFiles/firmware.dir/breadboard_io.c.obj
+LOAD CMakeFiles/firmware.dir/dcmotor.c.obj
+LOAD CMakeFiles/firmware.dir/lcd.c.obj
+LOAD CMakeFiles/firmware.dir/linkedqueue.c.obj
+LOAD CMakeFiles/firmware.dir/main.c.obj
+LOAD CMakeFiles/firmware.dir/mtimer.c.obj
+LOAD CMakeFiles/firmware.dir/stepper.c.obj
+START GROUP
+LOAD /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a
+LOAD /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libm.a
+LOAD /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libc.a
+LOAD /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libatmega2560.a
+END GROUP
+                [0x00000000]                      __TEXT_REGION_ORIGIN__ = DEFINED (__TEXT_REGION_ORIGIN__)?__TEXT_REGION_ORIGIN__:0x0
+                [0x00040000]                      __TEXT_REGION_LENGTH__ = DEFINED (__TEXT_REGION_LENGTH__)?__TEXT_REGION_LENGTH__:0x100000
+                [0x00800200]                      __DATA_REGION_ORIGIN__ = DEFINED (__DATA_REGION_ORIGIN__)?__DATA_REGION_ORIGIN__:0x800200
+                [0x00002000]                      __DATA_REGION_LENGTH__ = DEFINED (__DATA_REGION_LENGTH__)?__DATA_REGION_LENGTH__:0xfe00
+                [0x00001000]                      __EEPROM_REGION_LENGTH__ = DEFINED (__EEPROM_REGION_LENGTH__)?__EEPROM_REGION_LENGTH__:0x10000
+                [0x00000003]                      __FUSE_REGION_LENGTH__ = DEFINED (__FUSE_REGION_LENGTH__)?__FUSE_REGION_LENGTH__:0x400
+                0x00000400                        __LOCK_REGION_LENGTH__ = DEFINED (__LOCK_REGION_LENGTH__)?__LOCK_REGION_LENGTH__:0x400
+                0x00000400                        __SIGNATURE_REGION_LENGTH__ = DEFINED (__SIGNATURE_REGION_LENGTH__)?__SIGNATURE_REGION_LENGTH__:0x400
+                0x00000400                        __USER_SIGNATURE_REGION_LENGTH__ = DEFINED (__USER_SIGNATURE_REGION_LENGTH__)?__USER_SIGNATURE_REGION_LENGTH__:0x400
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000      0x3ee
+ *(.vectors)
+ .vectors       0x00000000       0xe4 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/crtatmega2560.o
+                0x00000000                __vectors
+ *(.vectors)
+                0x000000e4                        __progmem_start = .
+ *(.progmem)
+ *(.progmem.*)
+                0x000000e4                        __progmem_end = .
+                0x00000001                        ASSERT (((__progmem_start == __progmem_end) || (__progmem_end <= 0x10000)), .progmem section exceeds 0x10000)
+                0x000000e4                        . = ALIGN (0x2)
+                0x000000e4                        __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x000000e4        0x0 linker stubs
+ *(.trampolines*)
+                0x000000e4                        __trampolines_end = .
+                0x000000e4                        . = ALIGN (0x2)
+ *(.lowtext)
+ *(.lowtext*)
+                0x000000e4                        __ctors_start = .
+ *(.ctors)
+                0x000000e4                        __ctors_end = .
+                0x000000e4                        __dtors_start = .
+ *(.dtors)
+                0x000000e4                        __dtors_end = .
+ SORT_BY_NAME(*)(.ctors)
+ SORT_BY_NAME(*)(.dtors)
+ *(.init0)
+ .init0         0x000000e4        0x0 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/crtatmega2560.o
+                0x000000e4                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x000000e4       0x10 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/crtatmega2560.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x000000f4       0x1a /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_copy_data.o)
+                0x000000f4                __do_copy_data
+ .init4         0x0000010e       0x10 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_clear_bss.o)
+                0x0000010e                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x0000011e        0x8 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/crtatmega2560.o
+ *(.init9)
+ *(.text)
+ .text          0x00000126        0x4 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/crtatmega2560.o
+                0x00000126                __vector_38
+                0x00000126                __vector_22
+                0x00000126                __vector_28
+                0x00000126                __vector_34
+                0x00000126                __vector_24
+                0x00000126                __vector_12
+                0x00000126                __vector_55
+                0x00000126                __vector_46
+                0x00000126                __bad_interrupt
+                0x00000126                __vector_6
+                0x00000126                __vector_31
+                0x00000126                __vector_35
+                0x00000126                __vector_39
+                0x00000126                __vector_23
+                0x00000126                __vector_30
+                0x00000126                __vector_45
+                0x00000126                __vector_25
+                0x00000126                __vector_11
+                0x00000126                __vector_54
+                0x00000126                __vector_13
+                0x00000126                __vector_17
+                0x00000126                __vector_19
+                0x00000126                __vector_56
+                0x00000126                __vector_7
+                0x00000126                __vector_49
+                0x00000126                __vector_41
+                0x00000126                __vector_43
+                0x00000126                __vector_27
+                0x00000126                __vector_5
+                0x00000126                __vector_33
+                0x00000126                __vector_47
+                0x00000126                __vector_52
+                0x00000126                __vector_37
+                0x00000126                __vector_44
+                0x00000126                __vector_51
+                0x00000126                __vector_9
+                0x00000126                __vector_21
+                0x00000126                __vector_15
+                0x00000126                __vector_36
+                0x00000126                __vector_40
+                0x00000126                __vector_8
+                0x00000126                __vector_26
+                0x00000126                __vector_48
+                0x00000126                __vector_14
+                0x00000126                __vector_53
+                0x00000126                __vector_10
+                0x00000126                __vector_50
+                0x00000126                __vector_16
+                0x00000126                __vector_18
+                0x00000126                __vector_20
+                0x0000012a                        . = ALIGN (0x2)
+ *(.text.*)
+ .text.__vector_29
+                0x0000012a       0x38 CMakeFiles/firmware.dir/adc.c.obj
+                0x0000012a                __vector_29
+ .text.init_breadboard_io
+                0x00000162       0x14 CMakeFiles/firmware.dir/breadboard_io.c.obj
+                0x00000162                init_breadboard_io
+ .text.forward  0x00000176        0x6 CMakeFiles/firmware.dir/dcmotor.c.obj
+                0x00000176                forward
+ .text.break_hi
+                0x0000017c        0x6 CMakeFiles/firmware.dir/dcmotor.c.obj
+                0x0000017c                break_hi
+ .text.init_dcmotor
+                0x00000182       0x46 CMakeFiles/firmware.dir/dcmotor.c.obj
+                0x00000182                init_dcmotor
+ .text.startup.main
+                0x000001c8       0x88 CMakeFiles/firmware.dir/main.c.obj
+                0x000001c8                main
+ .text.__vector_1
+                0x00000250        0xc CMakeFiles/firmware.dir/main.c.obj
+                0x00000250                __vector_1
+ .text.__vector_2
+                0x0000025c        0xc CMakeFiles/firmware.dir/main.c.obj
+                0x0000025c                __vector_2
+ .text.__vector_3
+                0x00000268       0x50 CMakeFiles/firmware.dir/main.c.obj
+                0x00000268                __vector_3
+ .text.__vector_4
+                0x000002b8       0x50 CMakeFiles/firmware.dir/main.c.obj
+                0x000002b8                __vector_4
+ .text.__vector_default
+                0x00000308        0x2 CMakeFiles/firmware.dir/main.c.obj
+                0x00000308                __vector_default
+ .text.__vector_42
+                0x0000030a        0xc CMakeFiles/firmware.dir/mtimer.c.obj
+                0x0000030a                __vector_42
+ .text.__vector_32
+                0x00000316        0xc CMakeFiles/firmware.dir/mtimer.c.obj
+                0x00000316                __vector_32
+ .text.mTimer   0x00000322       0x48 CMakeFiles/firmware.dir/mtimer.c.obj
+                0x00000322                mTimer
+ .text.rotate   0x0000036a       0x66 CMakeFiles/firmware.dir/stepper.c.obj
+                0x0000036a                rotate
+ .text.home_on_black
+                0x000003d0       0x1a CMakeFiles/firmware.dir/stepper.c.obj
+                0x000003d0                home_on_black
+                0x000003ea                        . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x000003ea        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_exit.o)
+                0x000003ea                exit
+                0x000003ea                _exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x000003ea        0x4 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_exit.o)
+ *(.fini0)
+ *(.hightext)
+ *(.hightext*)
+ *(.progmemx)
+ *(.progmemx.*)
+                0x000003ee                        . = ALIGN (0x2)
+ *(.jumptables)
+ *(.jumptables*)
+                0x000003ee                        _etext = .
+
+.data           0x00800200        0x6 load address 0x000003ee
+                0x00800200                        PROVIDE (__data_start = .)
+ *(.data)
+ *(.data*)
+ .data.stepper_step
+                0x00800200        0x1 CMakeFiles/firmware.dir/stepper.c.obj
+                0x00800200                stepper_step
+ *(.gnu.linkonce.d*)
+ *(.rodata)
+ *(.rodata*)
+ .rodata.portA_table
+                0x00800201        0x4 CMakeFiles/firmware.dir/stepper.c.obj
+                0x00800201                portA_table
+ *(.gnu.linkonce.r*)
+                0x00800206                        . = ALIGN (0x2)
+ *fill*         0x00800205        0x1 
+                0x00800206                        _edata = .
+                0x00800206                        PROVIDE (__data_end = .)
+
+.bss            0x00800206        0x7
+                0x00800206                        PROVIDE (__bss_start = .)
+ *(.bss)
+ *(.bss*)
+ .bss.ADC_result_flag
+                0x00800206        0x1 CMakeFiles/firmware.dir/adc.c.obj
+                0x00800206                ADC_result_flag
+ .bss.ADC_result
+                0x00800207        0x2 CMakeFiles/firmware.dir/adc.c.obj
+                0x00800207                ADC_result
+ .bss.bitwidth  0x00800209        0x1 CMakeFiles/firmware.dir/adc.c.obj
+                0x00800209                bitwidth
+ .bss.STATE     0x0080020a        0x1 CMakeFiles/firmware.dir/main.c.obj
+                0x0080020a                STATE
+ .bss.tim3_exp  0x0080020b        0x1 CMakeFiles/firmware.dir/mtimer.c.obj
+                0x0080020b                tim3_exp
+ .bss.tim4_exp  0x0080020c        0x1 CMakeFiles/firmware.dir/mtimer.c.obj
+                0x0080020c                tim4_exp
+ *(COMMON)
+                0x0080020d                        PROVIDE (__bss_end = .)
+                0x000003ee                        __data_load_start = LOADADDR (.data)
+                0x000003f4                        __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x0080020d        0x0
+                [!provide]                        PROVIDE (__noinit_start = .)
+ *(.noinit .noinit.* .gnu.linkonce.n.*)
+                [!provide]                        PROVIDE (__noinit_end = .)
+                0x0080020d                        _end = .
+                0x0080020d                        PROVIDE (__heap_start = .)
+                0x00000000                        __flmap_init_label = DEFINED (__flmap_noinit_start)?__flmap_noinit_start:0x0
+                0x00000000                        __flmap = DEFINED (__flmap)?__flmap:0x0
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                        __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x00000000       0x23
+ *(.comment)
+ .comment       0x00000000       0x23 CMakeFiles/firmware.dir/adc.c.obj
+                                 0x24 (size before relaxing)
+ .comment       0x00000023        0x0 CMakeFiles/firmware.dir/breadboard_io.c.obj
+                                 0x24 (size before relaxing)
+ .comment       0x00000023        0x0 CMakeFiles/firmware.dir/dcmotor.c.obj
+                                 0x24 (size before relaxing)
+ .comment       0x00000023        0x0 CMakeFiles/firmware.dir/main.c.obj
+                                 0x24 (size before relaxing)
+ .comment       0x00000023        0x0 CMakeFiles/firmware.dir/mtimer.c.obj
+                                 0x24 (size before relaxing)
+ .comment       0x00000023        0x0 CMakeFiles/firmware.dir/stepper.c.obj
+                                 0x24 (size before relaxing)
+
+.note.gnu.avr.deviceinfo
+                0x00000000       0x40
+ .note.gnu.avr.deviceinfo
+                0x00000000       0x40 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/crtatmega2560.o
+
+.gnu.build.attributes
+ *(.gnu.build.attributes .gnu.build.attributes.*)
+
+.note.gnu.build-id
+ *(.note.gnu.build-id)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000       0x60
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x20 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_exit.o)
+ .debug_aranges
+                0x00000020       0x20 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_copy_data.o)
+ .debug_aranges
+                0x00000040       0x20 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_clear_bss.o)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x00000000      0xc28
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x00000000      0xbbc /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/crtatmega2560.o
+ .debug_info    0x00000bbc       0x24 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_exit.o)
+ .debug_info    0x00000be0       0x24 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_copy_data.o)
+ .debug_info    0x00000c04       0x24 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_clear_bss.o)
+
+.debug_abbrev   0x00000000      0xb56
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000      0xb1a /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/crtatmega2560.o
+ .debug_abbrev  0x00000b1a       0x14 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_exit.o)
+ .debug_abbrev  0x00000b2e       0x14 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_copy_data.o)
+ .debug_abbrev  0x00000b42       0x14 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_clear_bss.o)
+
+.debug_line     0x00000000      0x176
+ *(.debug_line .debug_line.* .debug_line_end)
+ .debug_line    0x00000000       0x1d /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/crtatmega2560.o
+ .debug_line    0x0000001d       0x51 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_exit.o)
+ .debug_line    0x0000006e       0x93 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_copy_data.o)
+ .debug_line    0x00000101       0x75 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_clear_bss.o)
+
+.debug_frame
+ *(.debug_frame)
+
+.debug_str      0x00000000      0x479
+ *(.debug_str)
+ .debug_str     0x00000000      0x3e6 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/crtatmega2560.o
+ .debug_str     0x000003e6       0x93 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_exit.o)
+ .debug_str     0x00000479        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_copy_data.o)
+                                 0x93 (size before relaxing)
+ .debug_str     0x00000479        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_clear_bss.o)
+                                 0x93 (size before relaxing)
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.debug_pubtypes
+ *(.debug_pubtypes)
+
+.debug_ranges
+ *(.debug_ranges)
+
+.debug_addr
+ *(.debug_addr)
+
+.debug_line_str
+                0x00000000       0x87
+ *(.debug_line_str)
+ .debug_line_str
+                0x00000000       0x87 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_exit.o)
+ .debug_line_str
+                0x00000087        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_copy_data.o)
+                                 0x87 (size before relaxing)
+ .debug_line_str
+                0x00000087        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_clear_bss.o)
+                                 0x87 (size before relaxing)
+
+.debug_loclists
+ *(.debug_loclists)
+
+.debug_macro
+ *(.debug_macro)
+
+.debug_names
+ *(.debug_names)
+
+.debug_rnglists
+ *(.debug_rnglists)
+
+.debug_str_offsets
+ *(.debug_str_offsets)
+
+.debug_sup
+ *(.debug_sup)
+OUTPUT(firmware.elf elf32-avr)
+LOAD linker stubs
