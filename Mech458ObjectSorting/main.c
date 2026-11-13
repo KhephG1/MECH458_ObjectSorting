@@ -45,8 +45,10 @@ int main(int argc, char *argv[])
     // External Interrupt Control Register A - EICRA (pg 110 and under the
     // EXT_INT tab to the right
     // Set Interrupt sense control to catch a rising edge
-    EICRA |= _BV(ISC21) | _BV(ISC20);
-    EICRA |= _BV(ISC31) | _BV(ISC30);
+	EICRA |= _BV(ISC01) | _BV(ISC00); //interupt 0: pause button ; rising edge may need to change
+	EICRA |= _BV(ISC01); //interupt 1: ramp down ; falling edge, may need to change
+    EICRA |= _BV(ISC21) | _BV(ISC20); //interupt 2: OR sensor
+    EICRA |= _BV(ISC31); //interupt 3: EX optical gate sensor ; falling edge
 
     //	EICRA &= ~_BV(ISC21) & ~_BV(ISC20); /* These lines would undo the above
     //two lines */ 	EICRA &= ~_BV(ISC31) & ~_BV(ISC30); /* Nice little trick */
