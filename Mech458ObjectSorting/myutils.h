@@ -12,4 +12,14 @@ typedef enum
     WHITE,
     BLACK
 } ObjectType;
+
+typedef enum
+{
+    CENTER_BLACK = 0,
+    CENTER_ALUMINIUM = 50,
+    CENTER_WHITE = 100,
+    CENTER_STEEL = 150
+} TargetStep;
+
+TargetStep object_type_to_target_step(ObjectType type);
 #endif

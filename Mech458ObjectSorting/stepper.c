@@ -5,6 +5,7 @@
 #include "mtimer.h"
 
 uint8_t stepper_step = 1;
+int8_t steps_from_home = 0;
 
 const uint8_t portA_table[4] = {
     EN0_PIN | L1_PIN, // Step 1: EN0=1, L1=1, L2=0, EN1=0, L3=0, L4=0
@@ -86,5 +87,6 @@ int8_t home_on_black(void)
     {
         stepper_step = rotate(CW, 1, stepper_step);
     }
+    steps_from_home = 0;
     return 0;
 }

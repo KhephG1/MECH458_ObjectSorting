@@ -86,6 +86,7 @@ int main(int argc, char *argv[])
 
 // POLLING STATE
 POLLING_STAGE:
+    PORTL = 0 << 4;
     switch (STATE)
     {
     case (0):
@@ -105,25 +106,22 @@ POLLING_STAGE:
     } // switch STATE
 
 REFLECTIVE_STAGE:
-    // Do whatever is necessary HERE
-    PORTC = 0x04; // Just output pretty lights know you made it here
-                  // forward();
-    // Reset the state variable
+    PORTL = 1 << 4;
     STATE = 0;
     goto POLLING_STAGE;
 
 BUCKET_STAGE:
-    // Do whatever is necessary HERE
-    PORTC = 0x08;
+    PORTL = 2 << 4;
     break_hi();
-    // Reset the state variable
+    link *current_object = NULL;
+    dequeue(&head, &current_object);
+    TargetStep target = object_type_to_target_step(current_object->e.itemCode);
+    int8_t dif = target - steps_from_home;
     STATE = 0;
     goto POLLING_STAGE;
 
 END:
-    // The closing STATE ... how would you get here?
-    PORTC = 0xF0; // Indicates this state is active
-    // Stop everything here...'MAKE SAFE'
+    PORTL = 3 << 4; // Indicates this state is active
     return (0);
 }
 
