@@ -67,7 +67,7 @@ int main(int argc, char *argv[])
     // initialize pwm and tim 0
     init_dcmotor(DUTY_50_PERCENT, PRESCALER_3kHZ);
     // initialize adc
-    init_adc(ONE_SHOT, AVCC, ADC_IRQ_ENABLE, ADC_8_BITS);
+    init_adc(ONE_SHOT, AVCC, ADC_IRQ_ENABLE, ADC_10_BITS);
     // Initialize LCD module ; no blink or underline
     InitLCD(LS_BLINK | LS_ULINE);
     // initialize the FIFO
