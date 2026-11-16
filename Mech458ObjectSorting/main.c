@@ -64,6 +64,10 @@ int main(int argc, char *argv[])
     init_breadboard_io();
     // initialize pwm and tim 0
     init_dcmotor(DUTY_50_PERCENT, PRESCALER_3kHZ);
+	// initialize adc
+	init_adc(ONE_SHOT, AVCC, ADC_IRQ_ENABLE, ADC_10_BITS);
+	// Initialize LCD module ; no blink or underline
+	InitLCD(0x0); 
     // initialize the FIFO
     setup(&head, &tail);
     //	EICRA &= ~_BV(ISC21) & ~_BV(ISC20); /* These lines would undo the above
@@ -103,7 +107,19 @@ POLLING_STAGE:
 REFLECTIVE_STAGE:
     // Do whatever is necessary HERE
     PORTC = 0x04; // Just output pretty lights know you made it here
-	break_hi();
+	uint16_t min_Reading = 1023;
+	LCDWriteStringXY(0, 0, "ADC min_Val:");
+	//while an object is infront of sensor
+	while((PIND & OR) != 0){
+		uint16_t result = read_adc();
+		if(result < min_Reading){
+			min_Reading = result;
+		}
+	}
+	//TODO: Display min_Reading
+	LCDWriteStringXY(0, 0, "ADC min_Val:");
+	LCDWriteIntXY(0,1, min_Reading);
+	
     // Reset the state variable
     STATE = 0;
     goto POLLING_STAGE;
