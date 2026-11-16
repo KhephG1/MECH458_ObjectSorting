@@ -5,11 +5,7 @@ Archive member included to satisfy reference by file (symbol)
 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_exit.o)
                               /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/crtatmega2560.o (exit)
 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_copy_data.o)
-<<<<<<< HEAD
                               CMakeFiles/firmware.dir/main.c.obj (__do_copy_data)
-=======
-                              CMakeFiles/firmware.dir/myutils.c.obj (__do_copy_data)
->>>>>>> main
 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_clear_bss.o)
                               CMakeFiles/firmware.dir/adc.c.obj (__do_clear_bss)
 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_udivmodhi4.o)
@@ -74,35 +70,14 @@ Discarded input sections
  .text          0x00000000        0x0 CMakeFiles/firmware.dir/lcd.c.obj
  .data          0x00000000        0x0 CMakeFiles/firmware.dir/lcd.c.obj
  .bss           0x00000000        0x0 CMakeFiles/firmware.dir/lcd.c.obj
-<<<<<<< HEAD
  .text          0x00000000        0x0 CMakeFiles/firmware.dir/linkedqueue.c.obj
  .data          0x00000000        0x0 CMakeFiles/firmware.dir/linkedqueue.c.obj
  .bss           0x00000000        0x0 CMakeFiles/firmware.dir/linkedqueue.c.obj
- .text.initLink
-                0x00000000       0x30 CMakeFiles/firmware.dir/linkedqueue.c.obj
- .text.enqueue  0x00000000       0x2e CMakeFiles/firmware.dir/linkedqueue.c.obj
- .text.dequeue  0x00000000       0x20 CMakeFiles/firmware.dir/linkedqueue.c.obj
-=======
- .text.LCDWriteString
-                0x00000000       0x1c CMakeFiles/firmware.dir/lcd.c.obj
- .text.LCDWriteInt
-                0x00000000       0xaa CMakeFiles/firmware.dir/lcd.c.obj
- .text.LCDGotoXY
-                0x00000000       0x12 CMakeFiles/firmware.dir/lcd.c.obj
- .text          0x00000000        0x0 CMakeFiles/firmware.dir/linkedqueue.c.obj
- .data          0x00000000        0x0 CMakeFiles/firmware.dir/linkedqueue.c.obj
- .bss           0x00000000        0x0 CMakeFiles/firmware.dir/linkedqueue.c.obj
->>>>>>> main
  .text.firstValue
                 0x00000000        0xe CMakeFiles/firmware.dir/linkedqueue.c.obj
  .text.clearQueue
                 0x00000000       0x4a CMakeFiles/firmware.dir/linkedqueue.c.obj
  .text.size     0x00000000       0x1a CMakeFiles/firmware.dir/linkedqueue.c.obj
-<<<<<<< HEAD
- .text.button_handler
-                0x00000000       0xa0 CMakeFiles/firmware.dir/linkedqueue.c.obj
-=======
->>>>>>> main
  .text          0x00000000        0x0 CMakeFiles/firmware.dir/main.c.obj
  .data          0x00000000        0x0 CMakeFiles/firmware.dir/main.c.obj
  .bss           0x00000000        0x0 CMakeFiles/firmware.dir/main.c.obj
@@ -380,11 +355,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-<<<<<<< HEAD
-.text           0x00000000      0x7c6
-=======
-.text           0x00000000      0x938
->>>>>>> main
+.text           0x00000000      0xbd6
  *(.vectors)
  .vectors       0x00000000       0xe4 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/crtatmega2560.o
                 0x00000000                __vectors
@@ -511,7 +482,6 @@ END GROUP
                 0x00000286        0x6 CMakeFiles/firmware.dir/dcmotor.c.obj
                 0x00000286                break_hi
  .text.init_dcmotor
-<<<<<<< HEAD
                 0x0000028c       0x46 CMakeFiles/firmware.dir/dcmotor.c.obj
                 0x0000028c                init_dcmotor
  .text.LCDBusyLoop
@@ -532,117 +502,68 @@ END GROUP
                 0x000004bc                LCDGotoXY
  .text.setup    0x000004ce        0xe CMakeFiles/firmware.dir/linkedqueue.c.obj
                 0x000004ce                setup
- .text.startup.main
-                0x000004dc       0xfc CMakeFiles/firmware.dir/main.c.obj
-                0x000004dc                main
- .text.__vector_1
-                0x000005d8        0xc CMakeFiles/firmware.dir/main.c.obj
-                0x000005d8                __vector_1
- .text.__vector_2
-                0x000005e4        0xc CMakeFiles/firmware.dir/main.c.obj
-                0x000005e4                __vector_2
- .text.__vector_3
-                0x000005f0       0x50 CMakeFiles/firmware.dir/main.c.obj
-                0x000005f0                __vector_3
- .text.__vector_4
-                0x00000640       0x50 CMakeFiles/firmware.dir/main.c.obj
-                0x00000640                __vector_4
- .text.__vector_default
-                0x00000690        0x2 CMakeFiles/firmware.dir/main.c.obj
-                0x00000690                __vector_default
- .text.__vector_42
-                0x00000692        0xc CMakeFiles/firmware.dir/mtimer.c.obj
-                0x00000692                __vector_42
- .text.__vector_32
-                0x0000069e        0xc CMakeFiles/firmware.dir/mtimer.c.obj
-                0x0000069e                __vector_32
- .text.mTimer   0x000006aa       0x48 CMakeFiles/firmware.dir/mtimer.c.obj
-                0x000006aa                mTimer
- .text.rotate   0x000006f2       0x66 CMakeFiles/firmware.dir/stepper.c.obj
-                0x000006f2                rotate
- .text.home_on_black
-                0x00000758       0x1a CMakeFiles/firmware.dir/stepper.c.obj
-                0x00000758                home_on_black
- .text.libgcc.div
-                0x00000772       0x28 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_divmodhi4.o)
-                0x00000772                __divmodhi4
-                0x00000772                _div
- .text.libgcc.div
-                0x0000079a       0x28 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_udivmodhi4.o)
-                0x0000079a                __udivmodhi4
-                0x000007c2                        . = ALIGN (0x2)
- *(.fini9)
- .fini9         0x000007c2        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_exit.o)
-                0x000007c2                exit
-                0x000007c2                _exit
-=======
-                0x00000182       0x46 CMakeFiles/firmware.dir/dcmotor.c.obj
-                0x00000182                init_dcmotor
- .text.LCDBusyLoop
-                0x000001c8       0x60 CMakeFiles/firmware.dir/lcd.c.obj
-                0x000001c8                LCDBusyLoop
- .text.LCDByte  0x00000228       0x56 CMakeFiles/firmware.dir/lcd.c.obj
-                0x00000228                LCDByte
- .text.InitLCD  0x0000027e       0x6e CMakeFiles/firmware.dir/lcd.c.obj
-                0x0000027e                InitLCD
- .text.setup    0x000002ec        0xe CMakeFiles/firmware.dir/linkedqueue.c.obj
-                0x000002ec                setup
  .text.initLink
-                0x000002fa       0x30 CMakeFiles/firmware.dir/linkedqueue.c.obj
-                0x000002fa                initLink
- .text.enqueue  0x0000032a       0x2e CMakeFiles/firmware.dir/linkedqueue.c.obj
-                0x0000032a                enqueue
- .text.dequeue  0x00000358       0x20 CMakeFiles/firmware.dir/linkedqueue.c.obj
-                0x00000358                dequeue
- .text.isEmpty  0x00000378       0x10 CMakeFiles/firmware.dir/linkedqueue.c.obj
-                0x00000378                isEmpty
+                0x000004dc       0x30 CMakeFiles/firmware.dir/linkedqueue.c.obj
+                0x000004dc                initLink
+ .text.enqueue  0x0000050c       0x2e CMakeFiles/firmware.dir/linkedqueue.c.obj
+                0x0000050c                enqueue
+ .text.dequeue  0x0000053a       0x20 CMakeFiles/firmware.dir/linkedqueue.c.obj
+                0x0000053a                dequeue
+ .text.isEmpty  0x0000055a       0x10 CMakeFiles/firmware.dir/linkedqueue.c.obj
+                0x0000055a                isEmpty
  .text.startup.main
-                0x00000388      0x1f0 CMakeFiles/firmware.dir/main.c.obj
-                0x00000388                main
+                0x0000056a      0x25c CMakeFiles/firmware.dir/main.c.obj
+                0x0000056a                main
  .text.__vector_1
-                0x00000578       0x14 CMakeFiles/firmware.dir/main.c.obj
-                0x00000578                __vector_1
+                0x000007c6       0x14 CMakeFiles/firmware.dir/main.c.obj
+                0x000007c6                __vector_1
  .text.__vector_2
-                0x0000058c       0x50 CMakeFiles/firmware.dir/main.c.obj
-                0x0000058c                __vector_2
+                0x000007da       0x50 CMakeFiles/firmware.dir/main.c.obj
+                0x000007da                __vector_2
  .text.__vector_3
-                0x000005dc        0xc CMakeFiles/firmware.dir/main.c.obj
-                0x000005dc                __vector_3
+                0x0000082a        0xc CMakeFiles/firmware.dir/main.c.obj
+                0x0000082a                __vector_3
  .text.__vector_4
-                0x000005e8        0xc CMakeFiles/firmware.dir/main.c.obj
-                0x000005e8                __vector_4
+                0x00000836        0xc CMakeFiles/firmware.dir/main.c.obj
+                0x00000836                __vector_4
  .text.__vector_default
-                0x000005f4        0x2 CMakeFiles/firmware.dir/main.c.obj
-                0x000005f4                __vector_default
+                0x00000842        0x2 CMakeFiles/firmware.dir/main.c.obj
+                0x00000842                __vector_default
  .text.__vector_42
-                0x000005f6        0xc CMakeFiles/firmware.dir/mtimer.c.obj
-                0x000005f6                __vector_42
+                0x00000844        0xc CMakeFiles/firmware.dir/mtimer.c.obj
+                0x00000844                __vector_42
  .text.__vector_32
-                0x00000602        0xc CMakeFiles/firmware.dir/mtimer.c.obj
-                0x00000602                __vector_32
- .text.mTimer   0x0000060e       0x48 CMakeFiles/firmware.dir/mtimer.c.obj
-                0x0000060e                mTimer
+                0x00000850        0xc CMakeFiles/firmware.dir/mtimer.c.obj
+                0x00000850                __vector_32
+ .text.mTimer   0x0000085c       0x48 CMakeFiles/firmware.dir/mtimer.c.obj
+                0x0000085c                mTimer
  .text.object_type_to_target_step
-                0x00000656       0x14 CMakeFiles/firmware.dir/myutils.c.obj
-                0x00000656                object_type_to_target_step
+                0x000008a4       0x14 CMakeFiles/firmware.dir/myutils.c.obj
+                0x000008a4                object_type_to_target_step
  .text.absolute
-                0x0000066a        0xc CMakeFiles/firmware.dir/myutils.c.obj
-                0x0000066a                absolute
- .text.rotate   0x00000676       0x66 CMakeFiles/firmware.dir/stepper.c.obj
-                0x00000676                rotate
+                0x000008b8        0xc CMakeFiles/firmware.dir/myutils.c.obj
+                0x000008b8                absolute
+ .text.rotate   0x000008c4       0x66 CMakeFiles/firmware.dir/stepper.c.obj
+                0x000008c4                rotate
  .text.home_on_black
-                0x000006dc       0x1e CMakeFiles/firmware.dir/stepper.c.obj
-                0x000006dc                home_on_black
+                0x0000092a       0x1e CMakeFiles/firmware.dir/stepper.c.obj
+                0x0000092a                home_on_black
+ .text.libgcc.div
+                0x00000948       0x28 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_divmodhi4.o)
+                0x00000948                __divmodhi4
+                0x00000948                _div
+ .text.libgcc.div
+                0x00000970       0x28 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_udivmodhi4.o)
+                0x00000970                __udivmodhi4
  .text.avr-libc
-                0x000006fa      0x23a /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libc.a(malloc.o)
-                0x000006fa                malloc
-                0x0000081e                free
-                0x00000934                        . = ALIGN (0x2)
+                0x00000998      0x23a /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libc.a(malloc.o)
+                0x00000998                malloc
+                0x00000abc                free
+                0x00000bd2                        . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000934        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_exit.o)
-                0x00000934                exit
-                0x00000934                _exit
->>>>>>> main
+ .fini9         0x00000bd2        0x0 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_exit.o)
+                0x00000bd2                exit
+                0x00000bd2                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -661,31 +582,18 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
-<<<<<<< HEAD
- .fini0         0x000007c2        0x4 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_exit.o)
-=======
- .fini0         0x00000934        0x4 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_exit.o)
->>>>>>> main
+ .fini0         0x00000bd2        0x4 /usr/lib/gcc/avr/15.2.0/avr6/libgcc.a(_exit.o)
  *(.fini0)
  *(.hightext)
  *(.hightext*)
  *(.progmemx)
  *(.progmemx.*)
-<<<<<<< HEAD
-                0x000007c6                        . = ALIGN (0x2)
+                0x00000bd6                        . = ALIGN (0x2)
  *(.jumptables)
  *(.jumptables*)
-                0x000007c6                        _etext = .
+                0x00000bd6                        _etext = .
 
-.data           0x00800200       0x12 load address 0x000007c6
-=======
-                0x00000938                        . = ALIGN (0x2)
- *(.jumptables)
- *(.jumptables*)
-                0x00000938                        _etext = .
-
-.data           0x00800200       0x10 load address 0x00000938
->>>>>>> main
+.data           0x00800200       0x30 load address 0x00000bd6
                 0x00800200                        PROVIDE (__data_start = .)
  *(.data)
  .data          0x00800200        0x6 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libc.a(malloc.o)
@@ -699,93 +607,57 @@ END GROUP
  *(.gnu.linkonce.d*)
  *(.rodata)
  *(.rodata*)
-<<<<<<< HEAD
  .rodata.main.str1.1
-                0x00800201        0xd CMakeFiles/firmware.dir/main.c.obj
- .rodata.portA_table
-                0x0080020e        0x4 CMakeFiles/firmware.dir/stepper.c.obj
-                0x0080020e                portA_table
- *(.gnu.linkonce.r*)
-                0x00800212                        . = ALIGN (0x2)
-                0x00800212                        _edata = .
-                0x00800212                        PROVIDE (__data_end = .)
-
-.bss            0x00800212        0x9
-                0x00800212                        PROVIDE (__bss_start = .)
-=======
+                0x00800207       0x21 CMakeFiles/firmware.dir/main.c.obj
  .rodata.CSWTCH.1
-                0x00800207        0x4 CMakeFiles/firmware.dir/myutils.c.obj
+                0x00800228        0x4 CMakeFiles/firmware.dir/myutils.c.obj
  .rodata.portA_table
-                0x0080020b        0x4 CMakeFiles/firmware.dir/stepper.c.obj
-                0x0080020b                portA_table
+                0x0080022c        0x4 CMakeFiles/firmware.dir/stepper.c.obj
+                0x0080022c                portA_table
  *(.gnu.linkonce.r*)
-                0x00800210                        . = ALIGN (0x2)
- *fill*         0x0080020f        0x1 
-                0x00800210                        _edata = .
-                0x00800210                        PROVIDE (__data_end = .)
+                0x00800230                        . = ALIGN (0x2)
+                0x00800230                        _edata = .
+                0x00800230                        PROVIDE (__data_end = .)
 
-.bss            0x00800210        0xc
-                0x00800210                        PROVIDE (__bss_start = .)
->>>>>>> main
+.bss            0x00800230        0xe
+                0x00800230                        PROVIDE (__bss_start = .)
  *(.bss)
- .bss           0x00800210        0x4 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libc.a(malloc.o)
-                0x00800210                __flp
-                0x00800212                __brkval
+ .bss           0x00800230        0x4 /usr/lib/gcc/avr/15.2.0/../../../../avr/lib/avr6/libc.a(malloc.o)
+                0x00800230                __flp
+                0x00800232                __brkval
  *(.bss*)
  .bss.ADC_result_flag
-<<<<<<< HEAD
-                0x00800212        0x1 CMakeFiles/firmware.dir/adc.c.obj
-                0x00800212                ADC_result_flag
+                0x00800234        0x1 CMakeFiles/firmware.dir/adc.c.obj
+                0x00800234                ADC_result_flag
  .bss.ADC_result
-                0x00800213        0x2 CMakeFiles/firmware.dir/adc.c.obj
-                0x00800213                ADC_result
- .bss.adc_vref  0x00800215        0x1 CMakeFiles/firmware.dir/adc.c.obj
-                0x00800215                adc_vref
- .bss.adc_mode  0x00800216        0x1 CMakeFiles/firmware.dir/adc.c.obj
-                0x00800216                adc_mode
-=======
-                0x00800214        0x1 CMakeFiles/firmware.dir/adc.c.obj
-                0x00800214                ADC_result_flag
- .bss.ADC_result
-                0x00800215        0x2 CMakeFiles/firmware.dir/adc.c.obj
-                0x00800215                ADC_result
->>>>>>> main
- .bss.bitwidth  0x00800217        0x1 CMakeFiles/firmware.dir/adc.c.obj
-                0x00800217                bitwidth
- .bss.STATE     0x00800218        0x1 CMakeFiles/firmware.dir/main.c.obj
-                0x00800218                STATE
- .bss.tim3_exp  0x00800219        0x1 CMakeFiles/firmware.dir/mtimer.c.obj
-                0x00800219                tim3_exp
- .bss.tim4_exp  0x0080021a        0x1 CMakeFiles/firmware.dir/mtimer.c.obj
-                0x0080021a                tim4_exp
-<<<<<<< HEAD
- *(COMMON)
-                0x0080021b                        PROVIDE (__bss_end = .)
-                0x000007c6                        __data_load_start = LOADADDR (.data)
-                0x000007d8                        __data_load_end = (__data_load_start + SIZEOF (.data))
-
-.noinit         0x0080021b        0x0
-                [!provide]                        PROVIDE (__noinit_start = .)
- *(.noinit .noinit.* .gnu.linkonce.n.*)
-                [!provide]                        PROVIDE (__noinit_end = .)
-                0x0080021b                        _end = .
-                0x0080021b                        PROVIDE (__heap_start = .)
-=======
+                0x00800235        0x2 CMakeFiles/firmware.dir/adc.c.obj
+                0x00800235                ADC_result
+ .bss.adc_vref  0x00800237        0x1 CMakeFiles/firmware.dir/adc.c.obj
+                0x00800237                adc_vref
+ .bss.adc_mode  0x00800238        0x1 CMakeFiles/firmware.dir/adc.c.obj
+                0x00800238                adc_mode
+ .bss.bitwidth  0x00800239        0x1 CMakeFiles/firmware.dir/adc.c.obj
+                0x00800239                bitwidth
+ .bss.STATE     0x0080023a        0x1 CMakeFiles/firmware.dir/main.c.obj
+                0x0080023a                STATE
+ .bss.tim3_exp  0x0080023b        0x1 CMakeFiles/firmware.dir/mtimer.c.obj
+                0x0080023b                tim3_exp
+ .bss.tim4_exp  0x0080023c        0x1 CMakeFiles/firmware.dir/mtimer.c.obj
+                0x0080023c                tim4_exp
  .bss.steps_from_home
-                0x0080021b        0x1 CMakeFiles/firmware.dir/stepper.c.obj
-                0x0080021b                steps_from_home
+                0x0080023d        0x1 CMakeFiles/firmware.dir/stepper.c.obj
+                0x0080023d                steps_from_home
  *(COMMON)
-                0x0080021c                        PROVIDE (__bss_end = .)
-                0x00000938                        __data_load_start = LOADADDR (.data)
-                0x00000948                        __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x0080023e                        PROVIDE (__bss_end = .)
+                0x00000bd6                        __data_load_start = LOADADDR (.data)
+                0x00000c06                        __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0080021c        0x0
+.noinit         0x0080023e        0x0
                 [!provide]                        PROVIDE (__noinit_start = .)
  *(.noinit .noinit.* .gnu.linkonce.n.*)
                 [!provide]                        PROVIDE (__noinit_end = .)
-                0x0080021c                        _end = .
-                0x0080021c                        PROVIDE (__heap_start = .)
->>>>>>> main
+                0x0080023e                        _end = .
+                0x0080023e                        PROVIDE (__heap_start = .)
                 0x00000000                        __flmap_init_label = DEFINED (__flmap_noinit_start)?__flmap_noinit_start:0x0
                 0x00000000                        __flmap = DEFINED (__flmap)?__flmap:0x0
 
@@ -831,15 +703,7 @@ END GROUP
                                  0x24 (size before relaxing)
  .comment       0x00000046        0x0 CMakeFiles/firmware.dir/dcmotor.c.obj
                                  0x24 (size before relaxing)
-<<<<<<< HEAD
- .comment       0x00000023        0x0 CMakeFiles/firmware.dir/lcd.c.obj
-                                 0x24 (size before relaxing)
- .comment       0x00000023        0x0 CMakeFiles/firmware.dir/linkedqueue.c.obj
-                                 0x24 (size before relaxing)
- .comment       0x00000023        0x0 CMakeFiles/firmware.dir/main.c.obj
-=======
  .comment       0x00000046        0x0 CMakeFiles/firmware.dir/lcd.c.obj
->>>>>>> main
                                  0x24 (size before relaxing)
  .comment       0x00000046        0x0 CMakeFiles/firmware.dir/linkedqueue.c.obj
                                  0x24 (size before relaxing)

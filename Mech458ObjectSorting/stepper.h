@@ -20,7 +20,7 @@
 #define CCW 0
 // define as extern so main and other files can check how far away we are from
 // home
-extern int8_t steps_from_home;
+extern uint8_t steps_from_home;
 
 extern uint8_t stepper_step;
 /* init_stepper

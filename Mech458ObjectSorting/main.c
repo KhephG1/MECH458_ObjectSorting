@@ -22,27 +22,6 @@ int main(int argc, char *argv[])
     link *tail;
     setup(&head, &tail);
 
-    link *nl;
-    initLink(&nl);
-    nl->e.itemCode = ALUMINIUM;
-    enqueue(&head, &tail, &nl);
-
-    link *nl2;
-    initLink(&nl2);
-    nl2->e.itemCode = BLACK;
-    enqueue(&head, &tail, &nl2);
-
-    link *nl3;
-    initLink(&nl3);
-    nl3->e.itemCode = WHITE;
-    enqueue(&head, &tail, &nl3);
-
-    link *nl4;
-    initLink(&nl4);
-    nl4->e.itemCode = STEEL;
-    enqueue(&head, &tail, &nl4);
-    InitLCD(0x0);
-    LCDClear();
     STATE = 0;
 
     cli();
@@ -65,8 +44,8 @@ int main(int argc, char *argv[])
     init_adc(ONE_SHOT, AVCC, ADC_IRQ_ENABLE, ADC_10_BITS);
     // Initialize LCD module ; no blink or underline
     InitLCD(LS_BLINK | LS_ULINE);
+    LCDClear();
     // initialize the FIFO
-    setup(&head, &tail);
     //	EICRA &= ~_BV(ISC21) & ~_BV(ISC20); /* These lines would undo the above
     // two lines */ 	EICRA &= ~_BV(ISC31) & ~_BV(ISC30); /* Nice little trick
     // */
@@ -76,9 +55,9 @@ int main(int argc, char *argv[])
 
     // Enable all interrupts
     sei(); // Note this sets the Global Enable for all interrupts
-    // start the conveyor
-    forward();
     // home the bucket
+    while ((PIND & 0x2) != 0)
+        ;
     home_on_black();
     forward();
 
@@ -102,7 +81,7 @@ POLLING_STAGE:
 
 REFLECTIVE_STAGE:
     // Do whatever is necessary HERE
-    PORTC = 0x04; // Just output pretty lights know you made it here
+    PORTL = 1 << 4;
     LCDClear();
     uint16_t min_Reading = 1023;
 
@@ -115,31 +94,37 @@ REFLECTIVE_STAGE:
             min_Reading = result;
         }
     }
-	link *NewLink;
-	initLink(&NewLink);
-	// Display min_Reading
-	LCDWriteStringXY(0, 0, "CODE:");
-	LCDWriteIntXY(7, 0, min_Reading, 4);
-	if(min_Reading < 283){
-		//found aluminum!
-		NewLink->e.itemCode = ALUMINIUM;
-		LCDWriteStringXY(0,1, "ALUMINUM");
-	}else if(min_Reading < 727){
-		//found steel!
-		NewLink->e.itemCode = STEEL;
-		LCDWriteStringXY(0,1, "STEEL");
-	}else if(min_Reading < 956){
-		//found white!
-		NewLink->e.itemCode = WHITE;
-		LCDWriteStringXY(0,1, "WHITE");
-	}else{
-		NewLink->e.itemCode = BLACK;
-		LCDWriteStringXY(0,1, "BLACK");
-	}
-	enqueue(&head, &tail, &NewLink);
+    link *NewLink;
+    initLink(&NewLink);
+    // Display min_Reading
+    LCDWriteStringXY(0, 0, "CODE:");
+    LCDWriteIntXY(7, 0, min_Reading, 4);
+    if (min_Reading < 283)
+    {
+        // found aluminum!
+        NewLink->e.itemCode = ALUMINIUM;
+        LCDWriteStringXY(0, 1, "ALUMINUM");
+    }
+    else if (min_Reading < 727)
+    {
+        // found steel!
+        NewLink->e.itemCode = STEEL;
+        LCDWriteStringXY(0, 1, "STEEL");
+    }
+    else if (min_Reading < 956)
+    {
+        // found white!
+        NewLink->e.itemCode = WHITE;
+        LCDWriteStringXY(0, 1, "WHITE");
+    }
+    else
+    {
+        NewLink->e.itemCode = BLACK;
+        LCDWriteStringXY(0, 1, "BLACK");
+    }
+    enqueue(&head, &tail, &NewLink);
 
     // Reset the state variable
-    PORTL = 1 << 4;
     STATE = 0;
     goto POLLING_STAGE;
 
@@ -175,6 +160,7 @@ BUCKET_STAGE:
     uint8_t dir = (dif >= 0) ? CW : CCW;
     stepper_step = rotate(dir, (uint8_t)absolute(dif), stepper_step);
     steps_from_home = target;
+    LCDWriteIntXY(9, 1, steps_from_home, 3);
     forward();
     STATE = 0;
     goto POLLING_STAGE;
