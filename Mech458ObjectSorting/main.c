@@ -1,3 +1,4 @@
+#include "adc.h"
 #include "breadboard_io.h"
 #include "dcmotor.h"
 #include "lcd.h"
@@ -60,12 +61,24 @@ int main(int argc, char *argv[])
 
     init_breadboard_io();
     init_dcmotor(DUTY_50_PERCENT, PRESCALER_3kHZ);
+    // initialize adc
+    init_adc(ONE_SHOT, AVCC, ADC_IRQ_ENABLE, ADC_10_BITS);
+    // Initialize LCD module ; no blink or underline
+    InitLCD(LS_BLINK | LS_ULINE);
+    // initialize the FIFO
+    setup(&head, &tail);
+    //	EICRA &= ~_BV(ISC21) & ~_BV(ISC20); /* These lines would undo the above
+    // two lines */ 	EICRA &= ~_BV(ISC31) & ~_BV(ISC30); /* Nice little trick
+    // */
 
-    sei();
+    // See page 112 - EIFR External Interrupt Flags...notice how they reset on
+    // their own in 'C'...not in assembly
 
-    while ((PIND & 0x2) != 0)
-        ;
-
+    // Enable all interrupts
+    sei(); // Note this sets the Global Enable for all interrupts
+    // start the conveyor
+    forward();
+    // home the bucket
     home_on_black();
     forward();
 
@@ -79,6 +92,8 @@ POLLING_STAGE:
         goto REFLECTIVE_STAGE;
     case (2):
         goto BUCKET_STAGE;
+
+        break;
     case (3):
         goto END;
     default:
@@ -86,6 +101,44 @@ POLLING_STAGE:
     }
 
 REFLECTIVE_STAGE:
+    // Do whatever is necessary HERE
+    PORTC = 0x04; // Just output pretty lights know you made it here
+    LCDClear();
+    uint16_t min_Reading = 1023;
+
+    // while an object is infront of sensor
+    while ((PIND & OR) != 0)
+    {
+        uint16_t result = read_adc();
+        if (result < min_Reading)
+        {
+            min_Reading = result;
+        }
+    }
+	link *NewLink;
+	initLink(&NewLink);
+	// Display min_Reading
+	LCDWriteStringXY(0, 0, "CODE:");
+	LCDWriteIntXY(7, 0, min_Reading, 4);
+	if(min_Reading < 283){
+		//found aluminum!
+		NewLink->e.itemCode = ALUMINIUM;
+		LCDWriteStringXY(0,1, "ALUMINUM");
+	}else if(min_Reading < 727){
+		//found steel!
+		NewLink->e.itemCode = STEEL;
+		LCDWriteStringXY(0,1, "STEEL");
+	}else if(min_Reading < 956){
+		//found white!
+		NewLink->e.itemCode = WHITE;
+		LCDWriteStringXY(0,1, "WHITE");
+	}else{
+		NewLink->e.itemCode = BLACK;
+		LCDWriteStringXY(0,1, "BLACK");
+	}
+	enqueue(&head, &tail, &NewLink);
+
+    // Reset the state variable
     PORTL = 1 << 4;
     STATE = 0;
     goto POLLING_STAGE;
