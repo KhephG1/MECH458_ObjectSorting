@@ -170,10 +170,24 @@ CMakeFiles/firmware.dir/mtimer.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/firmware.dir/mtimer.c.s"
 	/usr/lib64/ccache/avr-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/mtimer.c" -o CMakeFiles/firmware.dir/mtimer.c.s
 
+CMakeFiles/firmware.dir/myutils.c.obj: CMakeFiles/firmware.dir/flags.make
+CMakeFiles/firmware.dir/myutils.c.obj: /home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/myutils.c
+CMakeFiles/firmware.dir/myutils.c.obj: CMakeFiles/firmware.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/firmware.dir/myutils.c.obj"
+	/usr/lib64/ccache/avr-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/firmware.dir/myutils.c.obj -MF CMakeFiles/firmware.dir/myutils.c.obj.d -o CMakeFiles/firmware.dir/myutils.c.obj -c "/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/myutils.c"
+
+CMakeFiles/firmware.dir/myutils.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/firmware.dir/myutils.c.i"
+	/usr/lib64/ccache/avr-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/myutils.c" > CMakeFiles/firmware.dir/myutils.c.i
+
+CMakeFiles/firmware.dir/myutils.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/firmware.dir/myutils.c.s"
+	/usr/lib64/ccache/avr-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/myutils.c" -o CMakeFiles/firmware.dir/myutils.c.s
+
 CMakeFiles/firmware.dir/stepper.c.obj: CMakeFiles/firmware.dir/flags.make
 CMakeFiles/firmware.dir/stepper.c.obj: /home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/stepper.c
 CMakeFiles/firmware.dir/stepper.c.obj: CMakeFiles/firmware.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/firmware.dir/stepper.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/firmware.dir/stepper.c.obj"
 	/usr/lib64/ccache/avr-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/firmware.dir/stepper.c.obj -MF CMakeFiles/firmware.dir/stepper.c.obj.d -o CMakeFiles/firmware.dir/stepper.c.obj -c "/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/stepper.c"
 
 CMakeFiles/firmware.dir/stepper.c.i: cmake_force
@@ -193,6 +207,7 @@ firmware_OBJECTS = \
 "CMakeFiles/firmware.dir/linkedqueue.c.obj" \
 "CMakeFiles/firmware.dir/main.c.obj" \
 "CMakeFiles/firmware.dir/mtimer.c.obj" \
+"CMakeFiles/firmware.dir/myutils.c.obj" \
 "CMakeFiles/firmware.dir/stepper.c.obj"
 
 # External object files for target firmware
@@ -205,10 +220,11 @@ firmware.elf: CMakeFiles/firmware.dir/lcd.c.obj
 firmware.elf: CMakeFiles/firmware.dir/linkedqueue.c.obj
 firmware.elf: CMakeFiles/firmware.dir/main.c.obj
 firmware.elf: CMakeFiles/firmware.dir/mtimer.c.obj
+firmware.elf: CMakeFiles/firmware.dir/myutils.c.obj
 firmware.elf: CMakeFiles/firmware.dir/stepper.c.obj
 firmware.elf: CMakeFiles/firmware.dir/build.make
 firmware.elf: CMakeFiles/firmware.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Linking C executable firmware.elf"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Linking C executable firmware.elf"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/firmware.dir/link.txt --verbose=$(VERBOSE)
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold "Generating firmware.hex"
 	avr-objcopy -O ihex -R .eeprom /home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/build/firmware.elf firmware.hex
