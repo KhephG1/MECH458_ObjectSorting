@@ -16,6 +16,8 @@
 #define L4_PIN (1 << PA5)
 // HE SENSOR
 #define HE (1 << PF1)
+// OR SENSOR
+#define OR (1<< PD2)
 // push buttons
 #define PAUSE (1 << PD0)
 #define RAMP_DOWN (1 << PD1)
