@@ -121,9 +121,28 @@ REFLECTIVE_STAGE:
             min_Reading = result;
         }
     }
-    // Display min_Reading
-    LCDWriteStringXY(0, 0, "ADC min_Val:");
-    LCDWriteIntXY(0, 1, min_Reading, 4);
+	link *NewLink;
+	initLink(&NewLink);
+	// Display min_Reading
+	LCDWriteStringXY(0, 0, "CODE:");
+	LCDWriteIntXY(7, 0, min_Reading, 4);
+	if(min_Reading < 283){
+		//found aluminum!
+		NewLink->e.itemCode = ALUMINIUM;
+		LCDWriteStringXY(0,1, "ALUMINUM");
+	}else if(min_Reading < 727){
+		//found steel!
+		NewLink->e.itemCode = STEEL;
+		LCDWriteStringXY(0,1, "STEEL");
+	}else if(min_Reading < 956){
+		//found white!
+		NewLink->e.itemCode = WHITE;
+		LCDWriteStringXY(0,1, "WHITE");
+	}else{
+		NewLink->e.itemCode = BLACK;
+		LCDWriteStringXY(0,1, "BLACK");
+	}
+	enqueue(&head, &tail, &NewLink);
 
     // Reset the state variable
     STATE = 0;
