@@ -67,7 +67,7 @@ int main(int argc, char *argv[])
 	// initialize adc
 	init_adc(ONE_SHOT, AVCC, ADC_IRQ_ENABLE, ADC_10_BITS);
 	// Initialize LCD module ; no blink or underline
-	InitLCD(0x0); 
+	InitLCD(LS_BLINK | LS_ULINE); 
     // initialize the FIFO
     setup(&head, &tail);
     //	EICRA &= ~_BV(ISC21) & ~_BV(ISC20); /* These lines would undo the above
