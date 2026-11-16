@@ -8,4 +8,5 @@ CMakeFiles/firmware.dir/lcd.c.obj: \
  /usr/avr/include/avr/lock.h /usr/avr/include/util/delay.h \
  /usr/avr/include/util/delay_basic.h \
  /home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/lcd.h \
- /home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/myutils.h
+ /home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/myutils.h \
+ /usr/avr/include/stdlib.h /usr/lib/gcc/avr/15.2.0/include/stddef.h

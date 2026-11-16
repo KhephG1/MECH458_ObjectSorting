@@ -11,6 +11,7 @@ set(OLD_GLOB
   "/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/linkedqueue.c"
   "/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/main.c"
   "/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/mtimer.c"
+  "/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/myutils.c"
   "/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/stepper.c"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")

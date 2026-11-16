@@ -16,8 +16,10 @@ CMakeFiles/firmware.dir/adc.c.obj: /home/khephrengould/Documents/Projects/School
   /usr/avr/include/avr/version.h \
   /usr/avr/include/inttypes.h \
   /usr/avr/include/stdint.h \
+  /usr/avr/include/stdlib.h \
   /usr/avr/include/util/delay.h \
   /usr/avr/include/util/delay_basic.h \
+  /usr/lib/gcc/avr/15.2.0/include/stddef.h \
   /usr/lib/gcc/avr/15.2.0/include/stdint.h
 
 CMakeFiles/firmware.dir/breadboard_io.c.obj: /home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/breadboard_io.c \
@@ -64,8 +66,10 @@ CMakeFiles/firmware.dir/lcd.c.obj: /home/khephrengould/Documents/Projects/School
   /usr/avr/include/avr/version.h \
   /usr/avr/include/inttypes.h \
   /usr/avr/include/stdint.h \
+  /usr/avr/include/stdlib.h \
   /usr/avr/include/util/delay.h \
   /usr/avr/include/util/delay_basic.h \
+  /usr/lib/gcc/avr/15.2.0/include/stddef.h \
   /usr/lib/gcc/avr/15.2.0/include/stdint.h
 
 CMakeFiles/firmware.dir/linkedqueue.c.obj: /home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/linkedqueue.c \
@@ -89,8 +93,10 @@ CMakeFiles/firmware.dir/linkedqueue.c.obj: /home/khephrengould/Documents/Project
 CMakeFiles/firmware.dir/main.c.obj: /home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/main.c \
   /home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/breadboard_io.h \
   /home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/dcmotor.h \
+  /home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/linkedqueue.h \
   /home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/mtimer.h \
-  /home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/pwm.h \
+  /home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/myutils.h \
+  /home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/stepper.h \
   /usr/avr/include/avr/common.h \
   /usr/avr/include/avr/fuse.h \
   /usr/avr/include/avr/interrupt.h \
@@ -102,6 +108,8 @@ CMakeFiles/firmware.dir/main.c.obj: /home/khephrengould/Documents/Projects/Schoo
   /usr/avr/include/avr/version.h \
   /usr/avr/include/inttypes.h \
   /usr/avr/include/stdint.h \
+  /usr/avr/include/stdlib.h \
+  /usr/lib/gcc/avr/15.2.0/include/stddef.h \
   /usr/lib/gcc/avr/15.2.0/include/stdint.h
 
 CMakeFiles/firmware.dir/mtimer.c.obj: /home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/mtimer.c \
@@ -117,6 +125,22 @@ CMakeFiles/firmware.dir/mtimer.c.obj: /home/khephrengould/Documents/Projects/Sch
   /usr/avr/include/avr/version.h \
   /usr/avr/include/inttypes.h \
   /usr/avr/include/stdint.h \
+  /usr/lib/gcc/avr/15.2.0/include/stdint.h
+
+CMakeFiles/firmware.dir/myutils.c.obj: /home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/myutils.c \
+  /home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/myutils.h \
+  /usr/avr/include/avr/common.h \
+  /usr/avr/include/avr/fuse.h \
+  /usr/avr/include/avr/io.h \
+  /usr/avr/include/avr/iom2560.h \
+  /usr/avr/include/avr/lock.h \
+  /usr/avr/include/avr/portpins.h \
+  /usr/avr/include/avr/sfr_defs.h \
+  /usr/avr/include/avr/version.h \
+  /usr/avr/include/inttypes.h \
+  /usr/avr/include/stdint.h \
+  /usr/avr/include/stdlib.h \
+  /usr/lib/gcc/avr/15.2.0/include/stddef.h \
   /usr/lib/gcc/avr/15.2.0/include/stdint.h
 
 CMakeFiles/firmware.dir/stepper.c.obj: /home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/stepper.c \
@@ -135,14 +159,14 @@ CMakeFiles/firmware.dir/stepper.c.obj: /home/khephrengould/Documents/Projects/Sc
   /usr/avr/include/avr/version.h \
   /usr/avr/include/inttypes.h \
   /usr/avr/include/stdint.h \
+  /usr/avr/include/stdlib.h \
+  /usr/lib/gcc/avr/15.2.0/include/stddef.h \
   /usr/lib/gcc/avr/15.2.0/include/stdint.h
 
 
 /home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/stepper.c:
 
 /home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/mtimer.c:
-
-/home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/pwm.h:
 
 /usr/avr/include/avr/interrupt.h:
 
@@ -155,6 +179,8 @@ CMakeFiles/firmware.dir/stepper.c.obj: /home/khephrengould/Documents/Projects/Sc
 /usr/avr/include/avr/sfr_defs.h:
 
 /usr/avr/include/avr/version.h:
+
+/home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/myutils.c:
 
 /usr/avr/include/avr/io.h:
 
@@ -176,6 +202,12 @@ CMakeFiles/firmware.dir/stepper.c.obj: /home/khephrengould/Documents/Projects/Sc
 
 /home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/lcd.c:
 
+/usr/avr/include/stdlib.h:
+
+/home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/stepper.h:
+
+/home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/breadboard_io.h:
+
 /usr/avr/include/avr/iom2560.h:
 
 /usr/avr/include/util/delay.h:
@@ -188,18 +220,12 @@ CMakeFiles/firmware.dir/stepper.c.obj: /home/khephrengould/Documents/Projects/Sc
 
 /usr/lib/gcc/avr/15.2.0/include/stdint.h:
 
-/home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/stepper.h:
+/home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/adc.c:
 
-/home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/breadboard_io.h:
-
-/usr/avr/include/stdlib.h:
+/usr/lib/gcc/avr/15.2.0/include/stddef.h:
 
 /home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/dcmotor.h:
 
 /home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/mtimer.h:
-
-/home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/adc.c:
-
-/usr/lib/gcc/avr/15.2.0/include/stddef.h:
 
 /home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/main.c:

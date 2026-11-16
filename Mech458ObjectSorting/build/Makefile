@@ -311,6 +311,30 @@ mtimer.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/firmware.dir/build.make CMakeFiles/firmware.dir/mtimer.c.s
 .PHONY : mtimer.c.s
 
+myutils.obj: myutils.c.obj
+.PHONY : myutils.obj
+
+# target to build an object file
+myutils.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/firmware.dir/build.make CMakeFiles/firmware.dir/myutils.c.obj
+.PHONY : myutils.c.obj
+
+myutils.i: myutils.c.i
+.PHONY : myutils.i
+
+# target to preprocess a source file
+myutils.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/firmware.dir/build.make CMakeFiles/firmware.dir/myutils.c.i
+.PHONY : myutils.c.i
+
+myutils.s: myutils.c.s
+.PHONY : myutils.s
+
+# target to generate assembly for a file
+myutils.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/firmware.dir/build.make CMakeFiles/firmware.dir/myutils.c.s
+.PHONY : myutils.c.s
+
 stepper.obj: stepper.c.obj
 .PHONY : stepper.obj
 
@@ -366,6 +390,9 @@ help:
 	@echo "... mtimer.obj"
 	@echo "... mtimer.i"
 	@echo "... mtimer.s"
+	@echo "... myutils.obj"
+	@echo "... myutils.i"
+	@echo "... myutils.s"
 	@echo "... stepper.obj"
 	@echo "... stepper.i"
 	@echo "... stepper.s"

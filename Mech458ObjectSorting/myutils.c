@@ -1,5 +1,4 @@
 #include "myutils.h"
-
 TargetStep object_type_to_target_step(ObjectType type)
 {
     switch (type)
@@ -21,3 +20,5 @@ TargetStep object_type_to_target_step(ObjectType type)
         break;
     }
 }
+
+int16_t absolute(int16_t val) { return val > 0 ? val : -val; }
