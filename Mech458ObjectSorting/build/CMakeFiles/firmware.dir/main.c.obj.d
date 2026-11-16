@@ -9,8 +9,10 @@ CMakeFiles/firmware.dir/main.c.obj: \
  /usr/avr/include/avr/lock.h \
  /home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/dcmotor.h \
  /home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/mtimer.h \
- /home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/linkedqueue.h \
+ /home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/lcd.h \
+ /usr/avr/include/util/delay.h /usr/avr/include/util/delay_basic.h \
  /home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/myutils.h \
  /usr/avr/include/stdlib.h /usr/lib/gcc/avr/15.2.0/include/stddef.h \
+ /home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/linkedqueue.h \
  /home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/stepper.h \
  /usr/avr/include/avr/interrupt.h

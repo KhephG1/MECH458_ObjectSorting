@@ -1,7 +1,9 @@
 #include "breadboard_io.h"
 #include "dcmotor.h"
+#include "lcd.h"
 #include "linkedqueue.h"
 #include "mtimer.h"
+#include "myutils.h"
 #include "stepper.h"
 #include <avr/interrupt.h>
 #include <avr/io.h>
@@ -11,39 +13,41 @@ volatile char STATE;
 
 int main(int argc, char *argv[])
 {
+
+    CLKPR = 0x80;
+    CLKPR = 0x01;
+
     link *head;
     link *tail;
     setup(&head, &tail);
 
     link *nl;
     initLink(&nl);
-    nl->e.itemCode = WHITE;
+    nl->e.itemCode = ALUMINIUM;
     enqueue(&head, &tail, &nl);
 
     link *nl2;
     initLink(&nl2);
-    nl2->e.itemCode = STEEL;
+    nl2->e.itemCode = BLACK;
     enqueue(&head, &tail, &nl2);
 
     link *nl3;
     initLink(&nl3);
-    nl2->e.itemCode = BLACK;
+    nl3->e.itemCode = WHITE;
     enqueue(&head, &tail, &nl3);
 
     link *nl4;
     initLink(&nl4);
-    nl2->e.itemCode = ALUMINIUM;
+    nl4->e.itemCode = STEEL;
     enqueue(&head, &tail, &nl4);
-
-    CLKPR = 0x80;
-    CLKPR = 0x01;
-
+    InitLCD(0x0);
+    LCDClear();
     STATE = 0;
 
     cli();
 
     EICRA |= _BV(ISC01) | _BV(ISC00);
-    EIMSK |= _BV(INT0);
+    // EIMSK |= _BV(INT0);
 
     EICRA |= _BV(ISC11);
     EIMSK |= _BV(INT1);
@@ -57,17 +61,16 @@ int main(int argc, char *argv[])
     init_breadboard_io();
     init_dcmotor(DUTY_50_PERCENT, PRESCALER_3kHZ);
 
-    EIFR = 0x0F;
     sei();
 
     while ((PIND & 0x2) != 0)
         ;
-    forward();
+
     home_on_black();
+    forward();
 
 POLLING_STAGE:
     PORTL = 0 << 4;
-    PORTC = PIND & 0x8;
     switch (STATE)
     {
     case (0):
@@ -89,7 +92,6 @@ REFLECTIVE_STAGE:
 
 BUCKET_STAGE:
     PORTL = 2 << 4;
-    PORTC = PIND & 0x8;
     break_hi();
     link *current_object = NULL;
     dequeue(&head, &current_object);
@@ -99,9 +101,13 @@ BUCKET_STAGE:
     }
     if (current_object == NULL)
     {
+
+        forward();
         STATE = 0;
         goto POLLING_STAGE;
     }
+
+    // LCDWriteInt(current_object->e.itemCode, 1);
     TargetStep target = object_type_to_target_step(current_object->e.itemCode);
     free(current_object);
     int16_t dif = (int16_t)target - (int16_t)steps_from_home;
@@ -115,6 +121,7 @@ BUCKET_STAGE:
     }
     uint8_t dir = (dif >= 0) ? CW : CCW;
     stepper_step = rotate(dir, (uint8_t)absolute(dif), stepper_step);
+    steps_from_home = target;
     forward();
     STATE = 0;
     goto POLLING_STAGE;

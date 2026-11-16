@@ -18,9 +18,9 @@ typedef enum
 typedef enum
 {
     CENTER_BLACK = 0,
-    CENTER_ALUMINIUM = 150,
+    CENTER_ALUMINIUM = 50,
     CENTER_WHITE = 100,
-    CENTER_STEEL = 50
+    CENTER_STEEL = 150
 } TargetStep;
 
 int16_t absolute(int16_t val);

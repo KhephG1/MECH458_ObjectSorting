@@ -17,7 +17,6 @@ const uint8_t portA_table[4] = {
 uint8_t rotate(uint8_t dir, uint8_t steps, uint8_t current_step)
 {
     uint8_t next_step = 0;
-
     while (steps > 0)
     {
         PORTA = portA_table[current_step - 1];
