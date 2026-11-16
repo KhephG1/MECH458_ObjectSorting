@@ -13,6 +13,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/firmware.dir/main.c.obj.d"
   "CMakeFiles/firmware.dir/mtimer.c.obj"
   "CMakeFiles/firmware.dir/mtimer.c.obj.d"
+  "CMakeFiles/firmware.dir/myutils.c.obj"
+  "CMakeFiles/firmware.dir/myutils.c.obj.d"
   "CMakeFiles/firmware.dir/stepper.c.obj"
   "CMakeFiles/firmware.dir/stepper.c.obj.d"
   "firmware.elf"

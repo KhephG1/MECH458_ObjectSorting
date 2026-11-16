@@ -12,9 +12,17 @@
 #include "avr/io.h"
 #include "myutils.h"
 
+// Degrees per step = 1.8°
+// 200 steps for 360 degrees
+
 // Rotation directions for rotate()
 #define CW 1
 #define CCW 0
+// define as extern so main and other files can check how far away we are from
+// home
+extern int8_t steps_from_home;
+
+extern uint8_t stepper_step;
 /* init_stepper
  * Puts Timer 0 in Fast PWM mode (non-inverting on OC0A), sets the prescaler and
  * sets the initial duty cycle. The PWM frequency is f = f_clk / (prescaler *

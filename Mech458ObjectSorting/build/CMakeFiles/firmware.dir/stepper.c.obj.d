@@ -8,6 +8,7 @@ CMakeFiles/firmware.dir/stepper.c.obj: \
  /usr/avr/include/avr/version.h /usr/avr/include/avr/fuse.h \
  /usr/avr/include/avr/lock.h \
  /home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/myutils.h \
+ /usr/avr/include/stdlib.h /usr/lib/gcc/avr/15.2.0/include/stddef.h \
  /usr/avr/include/avr/interrupt.h \
  /home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/breadboard_io.h \
  /home/khephrengould/Documents/Projects/School/Mech\ 458/MECH458_ObjectSorting/Mech458ObjectSorting/mtimer.h
