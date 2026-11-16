@@ -67,7 +67,7 @@ int main(int argc, char *argv[])
     // initialize pwm and tim 0
     init_dcmotor(DUTY_50_PERCENT, PRESCALER_3kHZ);
 	// initialize adc
-	init_adc(ONE_SHOT, AVCC, ADC_IRQ_ENABLE, ADC_10_BITS);
+	init_adc(ONE_SHOT, AVCC, ADC_IRQ_ENABLE, ADC_8_BITS);
 	// Initialize LCD module ; no blink or underline
 	InitLCD(LS_BLINK | LS_ULINE); 
     // initialize the FIFO
@@ -109,8 +109,9 @@ POLLING_STAGE:
 REFLECTIVE_STAGE:
     // Do whatever is necessary HERE
     PORTC = 0x04; // Just output pretty lights know you made it here
+	LCDClear();
 	uint16_t min_Reading = 1023;
-	LCDWriteStringXY(0, 0, "ADC min_Val:");
+	
 	//while an object is infront of sensor
 	while((PIND & OR) != 0){
 		uint16_t result = read_adc();
@@ -118,7 +119,7 @@ REFLECTIVE_STAGE:
 			min_Reading = result;
 		}
 	}
-	//TODO: Display min_Reading
+	//Display min_Reading
 	LCDWriteStringXY(0, 0, "ADC min_Val:");
 	LCDWriteIntXY(0,1, min_Reading);
 	
