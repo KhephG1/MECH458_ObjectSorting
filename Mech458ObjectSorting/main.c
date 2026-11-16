@@ -22,13 +22,13 @@
 // click on PINDA0 or PINDA3. Note that the interrupt catches a rising edge. You
 // modify this to suit your needs.
 
+#include "adc.h"
 #include "breadboard_io.h"
 #include "dcmotor.h"
+#include "lcd.h"
 #include "linkedqueue.h"
 #include "mtimer.h"
 #include "stepper.h"
-#include "adc.h"
-#include "lcd.h"
 #include <avr/interrupt.h>
 #include <avr/io.h>
 
@@ -51,10 +51,10 @@ int main(int argc, char *argv[])
     // External Interrupt Control Register A - EICRA (pg 110 and under the
     // EXT_INT tab to the right
     // Set Interrupt sense control to catch a rising edge
-    EICRA |= _BV(ISC01) |_BV(ISC00); // interupt 0: pause button
-    EIMSK |= _BV(INT0); //enable int0 
+    EICRA |= _BV(ISC01) | _BV(ISC00); // interupt 0: pause button
+    EIMSK |= _BV(INT0);               // enable int0
 
-    EICRA |=_BV(ISC01); // interupt 1: ramp down ; falling edge
+    EICRA |= _BV(ISC01); // interupt 1: ramp down ; falling edge
     EIMSK |= _BV(INT1);
 
     EICRA |= _BV(ISC21) | _BV(ISC20); // interupt 2: OR sensor
@@ -66,10 +66,10 @@ int main(int argc, char *argv[])
     init_breadboard_io();
     // initialize pwm and tim 0
     init_dcmotor(DUTY_50_PERCENT, PRESCALER_3kHZ);
-	// initialize adc
-	init_adc(ONE_SHOT, AVCC, ADC_IRQ_ENABLE, ADC_8_BITS);
-	// Initialize LCD module ; no blink or underline
-	InitLCD(LS_BLINK | LS_ULINE); 
+    // initialize adc
+    init_adc(ONE_SHOT, AVCC, ADC_IRQ_ENABLE, ADC_8_BITS);
+    // Initialize LCD module ; no blink or underline
+    InitLCD(LS_BLINK | LS_ULINE);
     // initialize the FIFO
     setup(&head, &tail);
     //	EICRA &= ~_BV(ISC21) & ~_BV(ISC20); /* These lines would undo the above
@@ -109,20 +109,22 @@ POLLING_STAGE:
 REFLECTIVE_STAGE:
     // Do whatever is necessary HERE
     PORTC = 0x04; // Just output pretty lights know you made it here
-	LCDClear();
-	uint16_t min_Reading = 1023;
-	
-	//while an object is infront of sensor
-	while((PIND & OR) != 0){
-		uint16_t result = read_adc();
-		if(result < min_Reading){
-			min_Reading = result;
-		}
-	}
-	//Display min_Reading
-	LCDWriteStringXY(0, 0, "ADC min_Val:");
-	LCDWriteIntXY(0,1, min_Reading);
-	
+    LCDClear();
+    uint16_t min_Reading = 1023;
+
+    // while an object is infront of sensor
+    while ((PIND & OR) != 0)
+    {
+        uint16_t result = read_adc();
+        if (result < min_Reading)
+        {
+            min_Reading = result;
+        }
+    }
+    // Display min_Reading
+    LCDWriteStringXY(0, 0, "ADC min_Val:");
+    LCDWriteIntXY(0, 1, min_Reading, 4);
+
     // Reset the state variable
     STATE = 0;
     goto POLLING_STAGE;
