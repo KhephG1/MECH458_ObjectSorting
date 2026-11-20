@@ -35,7 +35,7 @@ Finite-state machine with the following states:
 - Reflective (classify + enqueue)
 - Bucket (rotate + dequeue)
 - Pause
-- Error / Ramp-down
+- Ramp-down
 
 Control logic is written in C for the ATmega2560.
 
