@@ -1,9 +1,24 @@
-/*
- * dcmotor.c
+
+/* dcmotor.c
+ * DC motor driver for the ATmega2560
+ * - Controls DC motor direction using the motor driver input pins
+ * - Supports forward, reverse, and braking operation
+ * - Generates PWM using Timer 0 in Fast PWM mode
+ * - Configures PWM duty cycle and timer prescaler
+ * - Maintains a direction flag to track conveyor direction
  *
- * Created: 10/26/2026 10:27:03 PM
- *  Author: cliftontollefson
+ * Timer 0 is configured in Fast PWM mode with output compare A enabled.
+ * The PWM frequency is determined by the system clock, timer prescaler,
+ * and 8-bit timer resolution:
+ *
+ * f_PWM = f_clk / (N * 256)
+ *
+ * The PWM output is used to control the DC motor speed through the motor
+ * driver. Direction is controlled independently through the motor input pins.
+ *
+ * MECH 458, Fall 2026, Khephren Gould & Clifton Tollefson
  */
+
 #include "dcmotor.h"
 #include "avr/interrupt.h"
 #include "avr/io.h"

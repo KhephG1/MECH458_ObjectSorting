@@ -1,22 +1,14 @@
-/* Solution Set for the LinkedQueue.c */
-/*
-    Course		: UVic Mechatronics 458
-    Milestone	: 3
-    Title		: Data structures for MCUs and the Linked Queue Library
-
-    Name 1:	Clifton Tollefson	Student ID: V01004341
-    Name 2:	Khephren Gould		Student ID: V01012827
-
-    Description: You can change the following after you read it.  Lab3 Demo
-
-    This main routine will only serve as a testing routine for now. At some
-   point you can comment out The main routine, and can use the following library
-   of functions in your other applications
-
-    To do this...make sure both the .C file and the .H file are in the same
-   directory as the .C file with the MAIN routine (this will make it more
-   convenient)
-*/
+/* linkedqueue.c
+ *  FIFO queue of classified objects for the ATmega2560 sorting project
+ * - Singly linked list with head and tail pointers, each node holding an
+ *   element (an ObjectType plus a stage field)
+ * - An object is enqueued when the reflective sensor classifies it and
+ *   dequeued when the exit sensor sees it, so the queue order matches the order
+ *   of objects on the belt
+ * - Nodes are heap allocated with malloc in initLink() and freed by the caller
+ *   after dequeue(), or by clearQueue()
+ *
+ * MECH 458, Fall 2026, Khephren Gould & Clifton Tollefson  */
 
 /* include libraries */
 #include "linkedqueue.h" /* This is the attached header file, which cleans things up */

@@ -127,10 +127,8 @@ float adc_code_to_volts(int16_t adc_code)
 
 ISR(ADC_vect)
 {
-
     if (bitwidth == 8)
     {
-
         ADC_result = ADCH;
     }
     else

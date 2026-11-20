@@ -1,9 +1,13 @@
-/*
- * _timer.c
+/* mtimer.c
+ *  Timer driver for the ATmega2560
+ * - Blocking millisecond (mTimer) and microsecond (uTimer) delays using
+ *   Timer 1 in CTC mode with a prescaler of 8, polling the compare match flag
+ * - Non blocking one shot timer on Timer 4 and auto reload timer on Timer 3
+ * (CTC mode, prescaler 1024) that set the tim4_exp and tim3_exp flags from
+ * their compare match ISRs
+ * - Timings assume the 8 MHz system clock (16 MHz divided by 2 through CLKPR)
  *
- * Created: 2026-09-30 11:17:58 AM
- *  Author: Kheph
- */
+ * MECH 458, Fall 2026, Khephren Gould & Clifton Tollefson  */
 
 #include "mtimer.h"
 #include <avr/interrupt.h>
@@ -14,8 +18,11 @@
 
 // oneshot timer
 volatile uint8_t tim4_exp = 0;
-ISR(TIMER4_COMPA_vect) { tim4_exp = 1; }
-
+ISR(TIMER4_COMPA_vect)
+{
+    TCCR4B = 0;
+    tim4_exp = 1;
+}
 // autoreload timer
 volatile uint8_t tim3_exp = 0;
 ISR(TIMER3_COMPA_vect)
@@ -33,19 +40,11 @@ static inline uint16_t ms_to_ocr(uint16_t ms)
     return (ms << 3) - 1;
 }
 
-void mtimerInit(void)
-{
-    /// ensure tim1 is stopped
-    TCCR1B = 0;
-    // ensure tim2(one shot) is stopped
-    TCCR4B = 0;
-    // ensure tim3(autoreload) is stopped
-    TCCR3B = 0;
-}
 // an asynchronous one shot timer using the TIM2 peripheral
 // IMPORTANT: Max time is 8.19 seconds (with 8Mhz system clock)
 void mstartTimerOneShot(uint16_t millis)
 {
+    tim3_exp = 0;
     uint16_t counts = ms_to_ocr(millis);
     // enable output compare interrupts
     TIMSK4 |= _BV(OCIE4A);
@@ -62,6 +61,7 @@ void mstartTimerOneShot(uint16_t millis)
 // IMPORTANT: Max time is 8.19 seconds (with 8Mhz system clock)
 void mstartTimerAutoReload(uint16_t period_millis)
 {
+    tim4_exp = 0;
     uint16_t counts = ms_to_ocr(period_millis);
     // configure timer for autoreload mode
     TCCR3B |= _BV(WGM32);
@@ -77,6 +77,27 @@ void mstartTimerAutoReload(uint16_t period_millis)
     TCCR3B = _BV(WGM32) | _BV(CS32) | _BV(CS30);
 }
 
+void uTimer(uint16_t count)
+{
+
+    // Set the Waveform gen. mode bit description to clear on compare mode only
+    TCCR1B |= _BV(WGM12);
+    TCCR1B |= _BV(CS11);
+    // Set output compare register for count cycles (now the count val is
+    // microseconds)
+    OCR1A = count;
+    // enable output compare interrupts by unmasking them
+    // TIMSK1 |= 0x02;
+    // clear the interrupt for output compare
+    TIFR1 = _BV(OCF1A);
+    // clear the timer count before starting
+    TCNT1 = 0x0000;
+    // start the timer with a prescaler of 8
+
+    while ((TIFR1 & 0x02) != 0x02)
+        ;
+    return;
+}
 // A blocking timer implementation that uses the TIM1 peripheral
 void mTimer(uint16_t count)
 {

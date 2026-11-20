@@ -10,7 +10,8 @@
 #include <avr/io.h>
 #include <stdlib.h>
 
-volatile char STATE;
+// global variable holds current state of system
+volatile State STATE;
 
 int main(int argc, char *argv[])
 {
@@ -42,47 +43,49 @@ int main(int argc, char *argv[])
     init_dcmotor(DUTY_50_PERCENT, PRESCALER_3kHZ);
     // initialize adc
     init_adc(ONE_SHOT, AVCC, ADC_IRQ_ENABLE, ADC_10_BITS);
-    // Initialize LCD module ; no blink or underline
+    // Initialize LCD module
     InitLCD(LS_BLINK | LS_ULINE);
     LCDClear();
-    // initialize the FIFO
-    //	EICRA &= ~_BV(ISC21) & ~_BV(ISC20); /* These lines would undo the above
-    // two lines */ 	EICRA &= ~_BV(ISC31) & ~_BV(ISC30); /* Nice little trick
-    // */
-
-    // See page 112 - EIFR External Interrupt Flags...notice how they reset on
-    // their own in 'C'...not in assembly
-
-    // Enable all interrupts
     sei(); // Note this sets the Global Enable for all interrupts
-    // home the bucket
+    // wait for start button
     while ((PIND & 0x2) != 0)
         ;
+    // home the bucket
     home_on_black();
+    // start the belt
     forward();
 
 POLLING_STAGE:
     PORTL = 0 << 4;
     switch (STATE)
     {
-    case (0):
+    case (POLLING):
         goto POLLING_STAGE;
-    case (1):
-        goto REFLECTIVE_STAGE;
-    case (2):
-        goto BUCKET_STAGE;
-
         break;
-    case (3):
+    case (REFLECTIVE):
+        goto REFLECTIVE_STAGE;
+        break;
+    case (BUCKET):
+        goto BUCKET_STAGE;
+        break;
+    case (PAUSED):
+        goto PAUSED;
+        break;
+    case (RAMPDOWN):
         goto END;
+        break;
     default:
         goto POLLING_STAGE;
+        break;
     }
 
 REFLECTIVE_STAGE:
-    // Do whatever is necessary HERE
+    // set status LED for reflective stage
     PORTL = 1 << 4;
+
     LCDClear();
+
+    // variable to store lowest val seen by ADC
     uint16_t min_Reading = 1023;
 
     // while an object is infront of sensor
@@ -94,11 +97,14 @@ REFLECTIVE_STAGE:
             min_Reading = result;
         }
     }
+
     link *NewLink;
     initLink(&NewLink);
+
     // Display min_Reading
     LCDWriteStringXY(0, 0, "CODE:");
     LCDWriteIntXY(7, 0, min_Reading, 4);
+
     if (min_Reading < 283)
     {
         // found aluminum!
@@ -122,60 +128,79 @@ REFLECTIVE_STAGE:
         NewLink->e.itemCode = BLACK;
         LCDWriteStringXY(0, 1, "BLACK");
     }
+
     enqueue(&head, &tail, &NewLink);
 
     // Reset the state variable
-    STATE = 0;
+    STATE = POLLING;
     goto POLLING_STAGE;
 
 BUCKET_STAGE:
+    // set status LED for bucket stage
     PORTL = 2 << 4;
+    // an object has hit the EX sensor: stop the belt
     break_hi();
     link *current_object = NULL;
     dequeue(&head, &current_object);
+    // if we just emptied the list be sure to reset tail!
     if (isEmpty(&head))
     {
         tail = NULL;
     }
+    // if this function is called but no elements are in the list,
+    // go back to polling stage
     if (current_object == NULL)
     {
-
         forward();
-        STATE = 0;
+        STATE = POLLING;
         goto POLLING_STAGE;
     }
 
     // LCDWriteInt(current_object->e.itemCode, 1);
-    TargetStep target = object_type_to_target_step(current_object->e.itemCode);
-    free(current_object);
-    int16_t dif = (int16_t)target - (int16_t)steps_from_home;
-    if (dif > 100)
+    ObjectType target = current_object->e.itemCode;
+    // look in the rotation table for the amount of steps and direction we need
+    // to rotate
+    table_entry entry = rotation_table[current_region][target];
+    if (entry.steps == 50)
     {
-        dif -= 200;
+        stepper_step = s_curve_50(entry.dir, stepper_step);
     }
-    else if (dif < -100)
+    else if (entry.steps == 100)
     {
-        dif += 200;
+        stepper_step = s_curve_100(entry.dir, stepper_step);
     }
-    uint8_t dir = (dif >= 0) ? CW : CCW;
-    stepper_step = rotate(dir, (uint8_t)absolute(dif), stepper_step);
-    steps_from_home = target;
-    LCDWriteIntXY(9, 1, steps_from_home, 3);
+    // update the current region to the one we just rotated to
+    current_region = target;
+    LCDWriteIntXY(9, 1, current_region, 3);
     forward();
-    STATE = 0;
+    // make sure to free the memory for the link
+    free(current_object);
+    STATE = POLLING;
+    goto POLLING_STAGE;
+
+PAUSED:
+    STATE = POLLING;
+    // todo implement paused
     goto POLLING_STAGE;
 
 END:
     PORTL = 3 << 4;
+    // todo implement end
     return (0);
 }
 
-ISR(INT0_vect) { STATE = 0; }
+ISR(INT0_vect) { STATE = PAUSED; }
 
-ISR(INT1_vect) { STATE = 0; }
+ISR(INT1_vect) { STATE = RAMPDOWN; }
 
-ISR(INT2_vect) { STATE = 1; }
+ISR(INT2_vect) { STATE = REFLECTIVE; }
 
-ISR(INT3_vect) { STATE = 2; }
+ISR(INT3_vect) { STATE = BUCKET; }
 
-ISR(BADISR_vect) {}
+ISR(BADISR_vect)
+{
+    PORTL = 0xFF; // turn all status LED on
+    // trap the program here
+    while (1)
+        ;
+}
