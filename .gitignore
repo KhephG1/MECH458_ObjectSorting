@@ -1,1 +1,4 @@
 Debug
+build
+.vscode
+.clang-format
