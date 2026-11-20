@@ -1,7 +1,18 @@
-/*
- *adc.c
- *a library to interface with the adc on the atmega328
+/* adc.c
+ * ADC driver for the ATmega328P
+ * - Supports 8-bit and 10-bit ADC resolution
+ * - Configurable ADC reference voltage (AREF, AVCC, internal 1.1V, or 2.56V)
+ * - One-shot and continuous conversion modes
+ * - Optional ADC conversion-complete interrupt
+ * - Converts ADC codes to voltage
+ *
+ * The ADC operates with a prescaler of 16 for 8-bit resolution and 64 for
+ * 10-bit resolution. In continuous mode, conversions are triggered
+ * automatically and the ADC ISR stores the latest result in ADC_result.
+ *
+ * MECH 458, Fall 2026, Khephren Gould & Clifton Tollefson
  */
+
 #include "adc.h"
 #include "lcd.h"
 #include <avr/interrupt.h>
