@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
     cli();
 
     EICRA |= _BV(ISC01) | _BV(ISC00);
-    // EIMSK |= _BV(INT0);
+    EIMSK |= _BV(INT0);
 
     EICRA |= _BV(ISC11);
     EIMSK |= _BV(INT1);
