@@ -1,4 +1,17 @@
-Debug
-build
-.vscode
+# Build & generated files
+Mech458ObjectSorting/build/
+Mech458ObjectSorting/Debug/
+*.elf
+*.hex
+*.map
+*.o
+*.obj
+*.d
+
+# IDE
+Mech458ObjectSorting/.vscode/
+.vscode/
+
+# Other
 .clang-format
+Mech458ObjectSorting/.clang-format
