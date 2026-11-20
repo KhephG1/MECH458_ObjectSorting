@@ -9,11 +9,11 @@ ATmega2560-based mechatronic sorter that classifies and sorts four material type
 
 Maximize the System Performance Index:
 
-\[
-SPI = \frac{N_c - N_i}{T_{MAX}}
-\]
 
-where \(N_c\) = correctly sorted objects, \(N_i\) = incorrectly sorted objects, and \(T_{MAX}\) is the allowed sorting time.
+SPI = N_c - N_i / T_MAX
+
+
+where N_c = correctly sorted objects, N_i = incorrectly sorted objects, and T_MAX is the allowed sorting time.
 
 ## System Overview
 
