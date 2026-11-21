@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
     // EIMSK |= _BV(INT0);
 
     EICRA |= _BV(ISC11);
-    EIMSK |= _BV(INT1);
+    // EIMSK |= _BV(INT1);
 
     EICRA |= _BV(ISC21) | _BV(ISC20);
     EIMSK |= _BV(INT2);
@@ -191,7 +191,14 @@ END:
 
 ISR(INT0_vect) { STATE = PAUSED; }
 
-ISR(INT1_vect) { STATE = RAMPDOWN; }
+ISR(INT1_vect)
+{
+    STATE = RAMPDOWN;
+
+    LCDWriteStringXY(0, 1, "HERE");
+    while (1)
+        ;
+}
 
 ISR(INT2_vect) { STATE = REFLECTIVE; }
 
