@@ -24,6 +24,11 @@ int main(int argc, char *argv[])
     setup(&head, &tail);
 
     STATE = 0;
+	uint8_t wh_count = 0;
+	uint8_t bl_count = 0;
+	uint8_t al_count = 0;
+	uint8_t st_count = 0;
+	
 
     cli();
 
@@ -158,6 +163,9 @@ BUCKET_STAGE:
 
     // LCDWriteInt(current_object->e.itemCode, 1);
     ObjectType target = current_object->e.itemCode;
+	
+
+		
     // look in the rotation table for the amount of steps and direction we need
     // to rotate
     table_entry entry = rotation_table[current_region][target];
@@ -173,6 +181,16 @@ BUCKET_STAGE:
     current_region = target;
     LCDWriteIntXY(9, 1, current_region, 3);
     forward();
+	
+	if(target == 0){
+		bl_count++;
+	}else if(target == 1){
+		al_count++;
+	}else if(target == 2){
+		wh_count;
+	}else if(target == 3){
+		st_count++;
+	}
     // make sure to free the memory for the link
     free(current_object);
     STATE = POLLING;
@@ -180,6 +198,15 @@ BUCKET_STAGE:
 
 PAUSED:
     STATE = POLLING;
+	length = size(&head, &tail);
+	LCDClear();
+	LCDWriteStringXY(0,0,"Wh: Bl: St: Al: Up:");
+	LCDWriteIntXY(1,1,wh_count,3);
+	LCDWriteIntXY(4,1,bl_count,3);
+	LCDWriteIntXY(7,1,st_count,3);
+	LCDWriteIntXY(10,1,al_count,3);
+	LCDWriteIntXY(13,1,length,3);
+	
     // todo implement paused
     goto POLLING_STAGE;
 
