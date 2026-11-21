@@ -12,7 +12,8 @@
 
 // global variable holds current state of system
 volatile State STATE;
-
+volatile uint8_t paused_flag = 1;
+volatile uint8_t rampdown_flag = 0; 
 int main(int argc, char *argv[])
 {
 
@@ -24,8 +25,35 @@ int main(int argc, char *argv[])
     setup(&head, &tail);
 
     STATE = 0;
+	uint8_t wh_count = 0;
+	uint8_t bl_count = 0;
+	uint8_t al_count = 0;
+	uint8_t st_count = 0;
+	
 
     cli();
+
+
+    init_breadboard_io();
+    init_dcmotor(DUTY_50_PERCENT, PRESCALER_3kHZ);
+    // initialize adc
+    init_adc(ONE_SHOT, AVCC, ADC_IRQ_ENABLE, ADC_10_BITS);
+    // Initialize LCD module
+    InitLCD(LS_BLINK | LS_ULINE);
+    LCDClear();
+    LCDWriteStringXY(0,0,"L Button");
+    LCDWriteStringXY(0,1,"to Start!")
+    // wait for start button
+    sei(); // Note this sets the Global Enable for all interrupts
+    // home the bucket
+    while ((PIND & 0x2) != 0)
+        ;
+    LCDClear();
+    LCDWriteStringXY(0,0,"Started: Homing");
+    mTimer(100);
+    while ((PIND & 0x2) == 0)
+        ;
+    mTimer(100);
 
     EICRA |= _BV(ISC01) | _BV(ISC00);
     EIMSK |= _BV(INT0);
@@ -39,18 +67,6 @@ int main(int argc, char *argv[])
     EICRA |= _BV(ISC31);
     EIMSK |= _BV(INT3);
 
-    init_breadboard_io();
-    init_dcmotor(DUTY_50_PERCENT, PRESCALER_3kHZ);
-    // initialize adc
-    init_adc(ONE_SHOT, AVCC, ADC_IRQ_ENABLE, ADC_10_BITS);
-    // Initialize LCD module
-    InitLCD(LS_BLINK | LS_ULINE);
-    LCDClear();
-    sei(); // Note this sets the Global Enable for all interrupts
-    // wait for start button
-    while ((PIND & 0x2) != 0)
-        ;
-    // home the bucket
     home_on_black();
     // start the belt
     forward();
@@ -60,6 +76,9 @@ POLLING_STAGE:
     switch (STATE)
     {
     case (POLLING):
+        if(tim4_exp == 1){
+            goto RAMPDOWN;
+        }
         goto POLLING_STAGE;
         break;
     case (REFLECTIVE):
@@ -70,9 +89,6 @@ POLLING_STAGE:
         break;
     case (PAUSED):
         goto PAUSED;
-        break;
-    case (RAMPDOWN):
-        goto END;
         break;
     default:
         goto POLLING_STAGE;
@@ -158,6 +174,9 @@ BUCKET_STAGE:
 
     // LCDWriteInt(current_object->e.itemCode, 1);
     ObjectType target = current_object->e.itemCode;
+	
+
+		
     // look in the rotation table for the amount of steps and direction we need
     // to rotate
     table_entry entry = rotation_table[current_region][target];
@@ -173,25 +192,71 @@ BUCKET_STAGE:
     current_region = target;
     LCDWriteIntXY(9, 1, current_region, 3);
     forward();
+	
+	if(target == 0){
+		bl_count++;
+	}else if(target == 1){
+		al_count++;
+	}else if(target == 2){
+		wh_count++;
+	}else if(target == 3){
+		st_count++;
+	}
     // make sure to free the memory for the link
     free(current_object);
     STATE = POLLING;
     goto POLLING_STAGE;
 
 PAUSED:
-    STATE = POLLING;
+    if(paused_flag == 0){
+        break_hi();
+        uint8_t length = size(&head, &tail);
+        LCDClear();
+        LCDWriteStringXY(0,0,"W: B: S: A: U:");
+        LCDWriteIntXY(0,1,wh_count,2);
+        LCDWriteIntXY(3,1,bl_count,2);
+        LCDWriteIntXY(6,1,st_count,2);
+        LCDWriteIntXY(9,1,al_count,2);
+        LCDWriteIntXY(12,1,length,2);
+        paused_flag = 1;
+    }else{
+        forward();
+        LCDClear();
+        paused_flag = 0;
+    }
     // todo implement paused
+    STATE = POLLING;
     goto POLLING_STAGE;
 
-END:
+RAMPDOWN:
     PORTL = 3 << 4;
+    break_hi();
+    cli();
+    LCDClear();
+    LCDWriteStringXY(0,0,"W: B: S: A:");
+    LCDWriteIntXY(0,1,wh_count,2);
+    LCDWriteIntXY(3,1,bl_count,2);
+    LCDWriteIntXY(6,1,st_count,2);
+    LCDWriteIntXY(9,1,al_count,2);
     // todo implement end
     return (0);
 }
 
-ISR(INT0_vect) { STATE = PAUSED; }
+ISR(INT0_vect) {
+    mTimer(20);
+    while((PIND & 0x01) == 1);
+    mTimer(20);
+    LCDClear();
+    LCDWriteStringXY(0,0,"Stop in 5s");
+    mstartTimerOneShot(5000);
+}
 
-ISR(INT1_vect) { STATE = RAMPDOWN; }
+ISR(INT1_vect) {
+    mTimer(20);
+    while((PIND & 0x02) == 0);
+    mTimer(20);
+    STATE = PAUSED;
+}
 
 ISR(INT2_vect) { STATE = REFLECTIVE; }
 
