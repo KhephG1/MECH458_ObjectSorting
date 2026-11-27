@@ -1,0 +1,38 @@
+[
+{
+  "directory": "/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/_build/Mech458ObjectSorting/Debug",
+  "command": "/usr/bin/avr-gcc -DDebug=Debug -D__ATmega2560__ -I/home/khephrengould/.mchp_packs/Microchip/ATmega_DFP/3.6.299/include -x c -fdiagnostics-color=always -g -gdwarf-2 -mmcu=atmega2560 -B/home/khephrengould/.mchp_packs/Microchip/ATmega_DFP/3.6.299/gcc/dev/atmega2560 -x c -c -mrelax -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -o CMakeFiles/Mech458ObjectSorting_Debug_Debug_avr_gcc_compile.dir/home/khephrengould/Documents/Projects/School/Mech_458/MECH458_ObjectSorting/Mech458ObjectSorting/adc.c.o -c \"/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/adc.c\"",
+  "file": "/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/adc.c",
+  "output": "/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/_build/Mech458ObjectSorting/Debug/CMakeFiles/Mech458ObjectSorting_Debug_Debug_avr_gcc_compile.dir/home/khephrengould/Documents/Projects/School/Mech_458/MECH458_ObjectSorting/Mech458ObjectSorting/adc.c.o"
+},
+{
+  "directory": "/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/_build/Mech458ObjectSorting/Debug",
+  "command": "/usr/bin/avr-gcc -DDebug=Debug -D__ATmega2560__ -I/home/khephrengould/.mchp_packs/Microchip/ATmega_DFP/3.6.299/include -x c -fdiagnostics-color=always -g -gdwarf-2 -mmcu=atmega2560 -B/home/khephrengould/.mchp_packs/Microchip/ATmega_DFP/3.6.299/gcc/dev/atmega2560 -x c -c -mrelax -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -o CMakeFiles/Mech458ObjectSorting_Debug_Debug_avr_gcc_compile.dir/home/khephrengould/Documents/Projects/School/Mech_458/MECH458_ObjectSorting/Mech458ObjectSorting/breadboard_io.c.o -c \"/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/breadboard_io.c\"",
+  "file": "/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/breadboard_io.c",
+  "output": "/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/_build/Mech458ObjectSorting/Debug/CMakeFiles/Mech458ObjectSorting_Debug_Debug_avr_gcc_compile.dir/home/khephrengould/Documents/Projects/School/Mech_458/MECH458_ObjectSorting/Mech458ObjectSorting/breadboard_io.c.o"
+},
+{
+  "directory": "/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/_build/Mech458ObjectSorting/Debug",
+  "command": "/usr/bin/avr-gcc -DDebug=Debug -D__ATmega2560__ -I/home/khephrengould/.mchp_packs/Microchip/ATmega_DFP/3.6.299/include -x c -fdiagnostics-color=always -g -gdwarf-2 -mmcu=atmega2560 -B/home/khephrengould/.mchp_packs/Microchip/ATmega_DFP/3.6.299/gcc/dev/atmega2560 -x c -c -mrelax -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -o CMakeFiles/Mech458ObjectSorting_Debug_Debug_avr_gcc_compile.dir/home/khephrengould/Documents/Projects/School/Mech_458/MECH458_ObjectSorting/Mech458ObjectSorting/dcmotor.c.o -c \"/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/dcmotor.c\"",
+  "file": "/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/dcmotor.c",
+  "output": "/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/_build/Mech458ObjectSorting/Debug/CMakeFiles/Mech458ObjectSorting_Debug_Debug_avr_gcc_compile.dir/home/khephrengould/Documents/Projects/School/Mech_458/MECH458_ObjectSorting/Mech458ObjectSorting/dcmotor.c.o"
+},
+{
+  "directory": "/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/_build/Mech458ObjectSorting/Debug",
+  "command": "/usr/bin/avr-gcc -DDebug=Debug -D__ATmega2560__ -I/home/khephrengould/.mchp_packs/Microchip/ATmega_DFP/3.6.299/include -x c -fdiagnostics-color=always -g -gdwarf-2 -mmcu=atmega2560 -B/home/khephrengould/.mchp_packs/Microchip/ATmega_DFP/3.6.299/gcc/dev/atmega2560 -x c -c -mrelax -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -o CMakeFiles/Mech458ObjectSorting_Debug_Debug_avr_gcc_compile.dir/home/khephrengould/Documents/Projects/School/Mech_458/MECH458_ObjectSorting/Mech458ObjectSorting/lcd.c.o -c \"/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/lcd.c\"",
+  "file": "/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/lcd.c",
+  "output": "/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/_build/Mech458ObjectSorting/Debug/CMakeFiles/Mech458ObjectSorting_Debug_Debug_avr_gcc_compile.dir/home/khephrengould/Documents/Projects/School/Mech_458/MECH458_ObjectSorting/Mech458ObjectSorting/lcd.c.o"
+},
+{
+  "directory": "/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/_build/Mech458ObjectSorting/Debug",
+  "command": "/usr/bin/avr-gcc -DDebug=Debug -D__ATmega2560__ -I/home/khephrengould/.mchp_packs/Microchip/ATmega_DFP/3.6.299/include -x c -fdiagnostics-color=always -g -gdwarf-2 -mmcu=atmega2560 -B/home/khephrengould/.mchp_packs/Microchip/ATmega_DFP/3.6.299/gcc/dev/atmega2560 -x c -c -mrelax -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -o CMakeFiles/Mech458ObjectSorting_Debug_Debug_avr_gcc_compile.dir/home/khephrengould/Documents/Projects/School/Mech_458/MECH458_ObjectSorting/Mech458ObjectSorting/main.c.o -c \"/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/main.c\"",
+  "file": "/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/main.c",
+  "output": "/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/_build/Mech458ObjectSorting/Debug/CMakeFiles/Mech458ObjectSorting_Debug_Debug_avr_gcc_compile.dir/home/khephrengould/Documents/Projects/School/Mech_458/MECH458_ObjectSorting/Mech458ObjectSorting/main.c.o"
+},
+{
+  "directory": "/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/_build/Mech458ObjectSorting/Debug",
+  "command": "/usr/bin/avr-gcc -DDebug=Debug -D__ATmega2560__ -I/home/khephrengould/.mchp_packs/Microchip/ATmega_DFP/3.6.299/include -x c -fdiagnostics-color=always -g -gdwarf-2 -mmcu=atmega2560 -B/home/khephrengould/.mchp_packs/Microchip/ATmega_DFP/3.6.299/gcc/dev/atmega2560 -x c -c -mrelax -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -o CMakeFiles/Mech458ObjectSorting_Debug_Debug_avr_gcc_compile.dir/home/khephrengould/Documents/Projects/School/Mech_458/MECH458_ObjectSorting/Mech458ObjectSorting/mtimer.c.o -c \"/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/mtimer.c\"",
+  "file": "/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/mtimer.c",
+  "output": "/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/_build/Mech458ObjectSorting/Debug/CMakeFiles/Mech458ObjectSorting_Debug_Debug_avr_gcc_compile.dir/home/khephrengould/Documents/Projects/School/Mech_458/MECH458_ObjectSorting/Mech458ObjectSorting/mtimer.c.o"
+}
+]

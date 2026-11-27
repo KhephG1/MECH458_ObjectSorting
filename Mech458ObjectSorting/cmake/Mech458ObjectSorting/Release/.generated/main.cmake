@@ -1,0 +1,108 @@
+include("${CMAKE_CURRENT_LIST_DIR}/rule.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/file.cmake")
+
+set(Mech458ObjectSorting_Release_library_list )
+
+set(OUTPUT_SUFFIX elf)
+# Handle files with suffix s, for group Release-avr-gcc
+if(Mech458ObjectSorting_Release_Release_avr_gcc_FILE_TYPE_assemble)
+add_library(Mech458ObjectSorting_Release_Release_avr_gcc_assemble OBJECT ${Mech458ObjectSorting_Release_Release_avr_gcc_FILE_TYPE_assemble})
+    Mech458ObjectSorting_Release_Release_avr_gcc_assemble_rule(Mech458ObjectSorting_Release_Release_avr_gcc_assemble)
+    list(APPEND Mech458ObjectSorting_Release_library_list "$<TARGET_OBJECTS:Mech458ObjectSorting_Release_Release_avr_gcc_assemble>")
+
+endif()
+
+# Handle files with suffix S, for group Release-avr-gcc
+if(Mech458ObjectSorting_Release_Release_avr_gcc_FILE_TYPE_assembleWithPreprocess)
+add_library(Mech458ObjectSorting_Release_Release_avr_gcc_assembleWithPreprocess OBJECT ${Mech458ObjectSorting_Release_Release_avr_gcc_FILE_TYPE_assembleWithPreprocess})
+    Mech458ObjectSorting_Release_Release_avr_gcc_assembleWithPreprocess_rule(Mech458ObjectSorting_Release_Release_avr_gcc_assembleWithPreprocess)
+    list(APPEND Mech458ObjectSorting_Release_library_list "$<TARGET_OBJECTS:Mech458ObjectSorting_Release_Release_avr_gcc_assembleWithPreprocess>")
+
+endif()
+
+# Handle files with suffix [cC], for group Release-avr-gcc
+if(Mech458ObjectSorting_Release_Release_avr_gcc_FILE_TYPE_compile)
+add_library(Mech458ObjectSorting_Release_Release_avr_gcc_compile OBJECT ${Mech458ObjectSorting_Release_Release_avr_gcc_FILE_TYPE_compile})
+    Mech458ObjectSorting_Release_Release_avr_gcc_compile_rule(Mech458ObjectSorting_Release_Release_avr_gcc_compile)
+    list(APPEND Mech458ObjectSorting_Release_library_list "$<TARGET_OBJECTS:Mech458ObjectSorting_Release_Release_avr_gcc_compile>")
+
+endif()
+
+# Handle files with suffix cpp, for group Release-avr-gcc
+if(Mech458ObjectSorting_Release_Release_avr_gcc_FILE_TYPE_compile_cpp)
+add_library(Mech458ObjectSorting_Release_Release_avr_gcc_compile_cpp OBJECT ${Mech458ObjectSorting_Release_Release_avr_gcc_FILE_TYPE_compile_cpp})
+    Mech458ObjectSorting_Release_Release_avr_gcc_compile_cpp_rule(Mech458ObjectSorting_Release_Release_avr_gcc_compile_cpp)
+    list(APPEND Mech458ObjectSorting_Release_library_list "$<TARGET_OBJECTS:Mech458ObjectSorting_Release_Release_avr_gcc_compile_cpp>")
+
+endif()
+
+# Handle files with suffix elf, for group Release-avr-gcc
+if(Mech458ObjectSorting_Release_Release_avr_gcc_FILE_TYPE_objcopy_ihex)
+add_library(Mech458ObjectSorting_Release_Release_avr_gcc_objcopy_ihex OBJECT ${Mech458ObjectSorting_Release_Release_avr_gcc_FILE_TYPE_objcopy_ihex})
+    Mech458ObjectSorting_Release_Release_avr_gcc_objcopy_ihex_rule(Mech458ObjectSorting_Release_Release_avr_gcc_objcopy_ihex)
+    list(APPEND Mech458ObjectSorting_Release_library_list "$<TARGET_OBJECTS:Mech458ObjectSorting_Release_Release_avr_gcc_objcopy_ihex>")
+
+endif()
+
+# Handle files with suffix elf, for group Release-avr-gcc
+if(Mech458ObjectSorting_Release_Release_avr_gcc_FILE_TYPE_objcopy_eep)
+add_library(Mech458ObjectSorting_Release_Release_avr_gcc_objcopy_eep OBJECT ${Mech458ObjectSorting_Release_Release_avr_gcc_FILE_TYPE_objcopy_eep})
+    Mech458ObjectSorting_Release_Release_avr_gcc_objcopy_eep_rule(Mech458ObjectSorting_Release_Release_avr_gcc_objcopy_eep)
+    list(APPEND Mech458ObjectSorting_Release_library_list "$<TARGET_OBJECTS:Mech458ObjectSorting_Release_Release_avr_gcc_objcopy_eep>")
+
+endif()
+
+# Handle files with suffix elf, for group Release-avr-gcc
+if(Mech458ObjectSorting_Release_Release_avr_gcc_FILE_TYPE_objcopy_lss)
+add_library(Mech458ObjectSorting_Release_Release_avr_gcc_objcopy_lss OBJECT ${Mech458ObjectSorting_Release_Release_avr_gcc_FILE_TYPE_objcopy_lss})
+    Mech458ObjectSorting_Release_Release_avr_gcc_objcopy_lss_rule(Mech458ObjectSorting_Release_Release_avr_gcc_objcopy_lss)
+    list(APPEND Mech458ObjectSorting_Release_library_list "$<TARGET_OBJECTS:Mech458ObjectSorting_Release_Release_avr_gcc_objcopy_lss>")
+
+endif()
+
+# Handle files with suffix elf, for group Release-avr-gcc
+if(Mech458ObjectSorting_Release_Release_avr_gcc_FILE_TYPE_objcopy_srec)
+add_library(Mech458ObjectSorting_Release_Release_avr_gcc_objcopy_srec OBJECT ${Mech458ObjectSorting_Release_Release_avr_gcc_FILE_TYPE_objcopy_srec})
+    Mech458ObjectSorting_Release_Release_avr_gcc_objcopy_srec_rule(Mech458ObjectSorting_Release_Release_avr_gcc_objcopy_srec)
+    list(APPEND Mech458ObjectSorting_Release_library_list "$<TARGET_OBJECTS:Mech458ObjectSorting_Release_Release_avr_gcc_objcopy_srec>")
+
+endif()
+
+# Handle files with suffix elf, for group Release-avr-gcc
+if(Mech458ObjectSorting_Release_Release_avr_gcc_FILE_TYPE_objcopy_sig)
+add_library(Mech458ObjectSorting_Release_Release_avr_gcc_objcopy_sig OBJECT ${Mech458ObjectSorting_Release_Release_avr_gcc_FILE_TYPE_objcopy_sig})
+    Mech458ObjectSorting_Release_Release_avr_gcc_objcopy_sig_rule(Mech458ObjectSorting_Release_Release_avr_gcc_objcopy_sig)
+    list(APPEND Mech458ObjectSorting_Release_library_list "$<TARGET_OBJECTS:Mech458ObjectSorting_Release_Release_avr_gcc_objcopy_sig>")
+
+endif()
+
+# Handle files with suffix elf, for group Release-avr-gcc
+if(Mech458ObjectSorting_Release_Release_avr_gcc_FILE_TYPE_objcopy_memusage)
+add_library(Mech458ObjectSorting_Release_Release_avr_gcc_objcopy_memusage OBJECT ${Mech458ObjectSorting_Release_Release_avr_gcc_FILE_TYPE_objcopy_memusage})
+    Mech458ObjectSorting_Release_Release_avr_gcc_objcopy_memusage_rule(Mech458ObjectSorting_Release_Release_avr_gcc_objcopy_memusage)
+    list(APPEND Mech458ObjectSorting_Release_library_list "$<TARGET_OBJECTS:Mech458ObjectSorting_Release_Release_avr_gcc_objcopy_memusage>")
+
+endif()
+
+
+# Main target for this project
+add_executable(Mech458ObjectSorting_Release_image_VvjfFif7 ${Mech458ObjectSorting_Release_library_list})
+
+set_target_properties(Mech458ObjectSorting_Release_image_VvjfFif7 PROPERTIES
+    OUTPUT_NAME "Release"
+    SUFFIX ".elf"
+    ADDITIONAL_CLEAN_FILES "${output_extensions}"
+    RUNTIME_OUTPUT_DIRECTORY "${Mech458ObjectSorting_Release_output_dir}")
+target_link_libraries(Mech458ObjectSorting_Release_image_VvjfFif7 PRIVATE ${Mech458ObjectSorting_Release_Release_avr_gcc_FILE_TYPE_link})
+# Add the link options from the rule file.
+Mech458ObjectSorting_Release_link_rule( Mech458ObjectSorting_Release_image_VvjfFif7)
+
+
+#Add objcopy steps
+Mech458ObjectSorting_Release_objcopy_ihex_rule(Mech458ObjectSorting_Release_image_VvjfFif7)
+Mech458ObjectSorting_Release_objcopy_eep_rule(Mech458ObjectSorting_Release_image_VvjfFif7)
+Mech458ObjectSorting_Release_objcopy_lss_rule(Mech458ObjectSorting_Release_image_VvjfFif7)
+Mech458ObjectSorting_Release_objcopy_srec_rule(Mech458ObjectSorting_Release_image_VvjfFif7)
+Mech458ObjectSorting_Release_objcopy_sig_rule(Mech458ObjectSorting_Release_image_VvjfFif7)
+Mech458ObjectSorting_Release_objcopy_memusage_rule(Mech458ObjectSorting_Release_image_VvjfFif7)
+

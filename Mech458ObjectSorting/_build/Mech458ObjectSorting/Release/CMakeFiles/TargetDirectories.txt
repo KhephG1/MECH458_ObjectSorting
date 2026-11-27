@@ -1,0 +1,4 @@
+/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/_build/Mech458ObjectSorting/Release/CMakeFiles/Mech458ObjectSorting_Release_Release_avr_gcc_compile.dir
+/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/_build/Mech458ObjectSorting/Release/CMakeFiles/Mech458ObjectSorting_Release_image_VvjfFif7.dir
+/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/_build/Mech458ObjectSorting/Release/CMakeFiles/edit_cache.dir
+/home/khephrengould/Documents/Projects/School/Mech 458/MECH458_ObjectSorting/Mech458ObjectSorting/_build/Mech458ObjectSorting/Release/CMakeFiles/rebuild_cache.dir

@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 
     cli();
     init_breadboard_io();
-    init_dcmotor(DUTY_50_PERCENT, PRESCALER_3kHZ);
+    init_dcmotor(DUTY_PERCENT, PRESCALER_3kHZ);
     // initialize adc
     init_adc(ONE_SHOT, AVCC, ADC_IRQ_ENABLE, ADC_10_BITS);
     // Initialize LCD module
@@ -131,7 +131,7 @@ REFLECTIVE_STAGE:
         NewLink->e.itemCode = STEEL;
         LCDWriteStringXY(0, 1, "STEEL");
     }
-    else if (min_Reading < 956)
+    else if (min_Reading < 955)
     {
         // found white!
         NewLink->e.itemCode = WHITE;

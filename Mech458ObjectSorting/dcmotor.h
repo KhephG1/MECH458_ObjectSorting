@@ -24,11 +24,11 @@
 #include "mtimer.h"
 #include <stdint.h>
 
-/* DUTY_50_PERCENT
+/* DUTY_PERCENT
  * PWM duty cycle count corresponding approximately to 50% duty cycle.
  * Timer 0 is an 8-bit timer, so the duty cycle ranges from 0 to 255.
  */
-#define DUTY_50_PERCENT (128)
+#define DUTY_PERCENT (127)
 
 /* PRESCALER_3kHZ
  * Timer 0 prescaler value used to configure the PWM frequency.
